@@ -42,11 +42,10 @@ module.exports = function makeWebpackConfig() {
 				test: /\.html$/,
 				use: 'raw-loader',
 				exclude: [root('src/index.html')]
+			},
+			{
+				test: /\.json$/, loader: 'json-loader'
 			}
-			// {
-			// 	test: /\.html$/,
-			// 	loader: 'html-loader'
-			// }
 		]
 	};
 
@@ -64,6 +63,12 @@ module.exports = function makeWebpackConfig() {
 			chunksSortMode: 'dependency'
 		})
 	];
+
+	config.devServer = {
+		historyApiFallback: true,
+		quiet: true,
+		stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
+	};
 
 	return config;
 }();
