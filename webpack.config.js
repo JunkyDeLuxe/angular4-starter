@@ -23,7 +23,7 @@ module.exports = function makeWebpackConfig() {
 	};
 
 	config.resolve = {
-		extensions: ['.ts', '.js', '.json', '.css', '.scss', '.html']
+		extensions: ['.ts', '.js', '.json', '.css', '.less', '.html']
 	};
 
 	config.module = {
@@ -44,17 +44,17 @@ module.exports = function makeWebpackConfig() {
 			},
 			{
 				test: /\.css$/,
-				exclude: root('src', 'app'),
-				loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader']})
+				use: ExtractTextPlugin.extract({
+					fallback: "style-loader",
+					use: "css-loader"
+				})
 			},
-			// all css required in src/app files will be merged in js files
 			{
-				test: /\.css$/, include: root('src', 'app'), loader: 'raw-loader'
-			},
-			// all css in src/style will be bundled in an external css file
-			{
-				test: /\.(scss|sass)$/,
-				loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader', 'sass-loader']})
+				test: /\.less$/,
+				use: ExtractTextPlugin.extract({
+					fallback: "style-loader",
+					use: "css-loader!less-loader"
+				})
 			},
 			{
 				test: /\.html$/,
