@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function makeWebpackConfig() {
 
@@ -23,7 +23,7 @@ module.exports = function makeWebpackConfig() {
 	};
 
 	config.resolve = {
-		extensions: ['.ts', '.js']
+		extensions: ['.ts', '.js', '.json', '.css', '.scss', '.html']
 	};
 
 	config.module = {
@@ -37,6 +37,24 @@ module.exports = function makeWebpackConfig() {
 					'awesome-typescript-loader'
 				],
 				exclude: /node_modules\/(?!(ng2-.+))/
+			},
+			{
+				test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
+			},
+			{
+				test: /\.css$/,
+				exclude: root('src', 'app'),
+				loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader']})
+			},
+			// all css required in src/app files will be merged in js files
+			{
+				test: /\.css$/, include: root('src', 'app'), loader: 'raw-loader'
+			},
+			// all css in src/style will be bundled in an external css file
+			{
+				test: /\.(scss|sass)$/,
+				loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader', 'sass-loader']})
 			},
 			{
 				test: /\.html$/,
@@ -61,7 +79,8 @@ module.exports = function makeWebpackConfig() {
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
 			chunksSortMode: 'dependency'
-		})
+		}),
+		new ExtractTextPlugin({ filename: 'css/[name].[hash].css' })
 	];
 
 	config.devServer = {
