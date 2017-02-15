@@ -13,7 +13,7 @@ import { AboutComponent } from './about/about.component';
 /** routes **/
 import { routing } from './app.routing';
 
-import './app.scss';
+import './app.module.less';
 
 @NgModule({
     imports: [
