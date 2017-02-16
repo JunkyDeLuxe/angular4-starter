@@ -44,10 +44,22 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">Link</a></li>
 				<li>
-					<select (change)="changeLanguage($event.target.value)" class="form-control">
-						<option *ngFor="let language of languages">{{ language }}</option>
-					</select>
+					<div class="btn-group margin-top-xs" dropdown>
+						<button id="single-button" type="button" class="btn btn-primary" dropdownToggle>
+							{{ language }} <span class="caret"></span>
+						</button>
+						<ul dropdownMenu role="menu" aria-labelledby="single-button">
+							<li role="menuitem" *ngFor="let language of languages" (click)="changeLanguage(language)">
+								<a class="dropdown-item">{{ language }}</a>
+							</li>
+						</ul>
+					</div>
 				</li>
+				<!--<li>-->
+					<!--<select (change)="changeLanguage($event.target.value)" class="form-control">-->
+						<!--<option *ngFor="let language of languages">{{ language }}</option>-->
+					<!--</select>-->
+				<!--</li>-->
 			</ul>
 		</div>
 	</div>

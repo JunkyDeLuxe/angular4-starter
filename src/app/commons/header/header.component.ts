@@ -8,12 +8,19 @@ import { TranslateService } from 'ng2-translate';
 
 export class HeaderComponent implements OnInit {
     private languages: Array<string>;
+    private language: string;
 
     constructor(translate: TranslateService) {
         this.languages = translate.getLangs();
+        this.language = translate.getDefaultLang();
     }
 
     ngOnInit() {
         console.log('Header component loaded');
+    }
+
+    changeLanguage(lang: string) {
+        console.log('want change language ' + lang);
+        this.language = lang;
     }
 }
