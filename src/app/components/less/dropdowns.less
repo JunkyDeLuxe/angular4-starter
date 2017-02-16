@@ -1,0 +1,54 @@
+.dropdown-dark-blue {
+  button:first-child {
+    border-radius: 3px; border-top-right-radius: 0; border-bottom-right-radius: 0;
+    .background-blue3;
+    border-right: none !important;
+  }
+
+  button:nth-child(2) {
+    border-radius: 3px; border-top-left-radius: 0; border-bottom-left-radius: 0;
+    .background-blue3;
+    border-left: none !important;
+  }
+}
+
+.dropdown-green {
+  button:first-child {
+    border-radius: 3px; border-top-right-radius: 0; border-bottom-right-radius: 0;
+    .background-green1;
+    border-right: none !important;
+  }
+
+  button:nth-child(2) {
+    border-radius: 3px; border-top-left-radius: 0; border-bottom-left-radius: 0;
+    .background-green1;
+    border-left: none !important;
+  }
+}
+
+.dropdown-grey {
+  button:first-child {
+    border-radius: 3px; border-top-right-radius: 0; border-bottom-right-radius: 0;
+    .background-grey9;
+    border-right: none !important;
+  }
+
+  button:nth-child(2) {
+    border-radius: 3px; border-top-left-radius: 0; border-bottom-left-radius: 0;
+    .background-grey9;
+    border-left: none !important;
+  }
+}
+
+.dropdown-dark-blue button:first-child:after, .dropdown-green button:first-child:after, .dropdown-grey button:first-child:after {
+  position: absolute;
+  content: '';
+  right: 1%;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  height: 80%;
+  background-color: #AEAEAE;
+  background-position: right;
+  background-repeat: repeat-y;
+}
