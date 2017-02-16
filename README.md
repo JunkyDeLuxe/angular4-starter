@@ -1,1 +1,1 @@
-# angular2-todoList
+# angular2 with Webpack 2
