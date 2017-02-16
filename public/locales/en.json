@@ -1,5 +1,12 @@
 {
   "home": {
     "title": "Hello from Angular App with Webpack"
+  },
+  "components": {
+    "languages": {
+      "labels": {
+        "change": "Change language"
+      }
+    }
   }
 }

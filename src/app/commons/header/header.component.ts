@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
     selector: 'my-header',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
-    constructor() {}
+    private languages: Array<string>;
+
+    constructor(translate: TranslateService) {
+        this.languages = translate.getLangs();
+    }
 
     ngOnInit() {
         console.log('Header component loaded');
