@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
     selector: 'my-app',
@@ -8,7 +9,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title: string;
 
-    constructor() {
-        this.title = "Hello from Angular App with Webpack";
+    constructor(translate: TranslateService) {
+        translate.setDefaultLang('fr');
+        translate.use('en');
     }
 }
