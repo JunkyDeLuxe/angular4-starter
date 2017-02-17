@@ -5,7 +5,9 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server --progress --bail --port 8080",
-    "build": "rimraf dist && webpack --progress --profile --bail"
+    "build": "rimraf dist && webpack --progress --profile --bail",
+    "lint": "tslint --force \"src/**/*.ts\"",
+    "pretest": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -42,6 +44,7 @@
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.0.4-rc.2",
     "bootstrap-less": "^3.3.8",
+    "codelyzer": "^2.0.0",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
@@ -55,6 +58,8 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
+    "tslint": "^4.3.1",
+    "tslint-loader": "^3.3.0",
     "typescript": "^2.1.6",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
