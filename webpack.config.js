@@ -39,8 +39,17 @@ module.exports = function makeWebpackConfig() {
 				exclude: /node_modules\/(?!(ng2-.+))/
 			},
 			{
+				test: /\.ts$/,
+				enforce: 'pre',
+				loader: 'tslint-loader'
+			},
+			{
 				test: /\.(png|jpe?g|gif|svg|otf|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 				loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
+			},
+			{
+				test: /\.(png|jpe?g|gif|svg)$/,
+				loader: 'file-loader?name=img/[name].[hash].[ext]?'
 			},
 			{
 				test: /\.css$/,
