@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule }  from '@angular/platform-browser';
 import { DropdownModule } from 'ng2-bootstrap'; // ui-bootstrap //
 import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-translate';
@@ -27,6 +28,7 @@ import './app.module.less';
             useFactory: (http: Http) => new TranslateStaticLoader(http, '/public/locales', '.json'),
             deps: [Http]
         }),
+        ReactiveFormsModule,
         routing
     ],
     declarations: [
