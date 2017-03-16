@@ -9,29 +9,48 @@
 
 			<form class="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
 				<div class="form-group">
-					<label for="name">Name</label>
+					<label for="email">Email</label>
 					<input
-							type="text"
+							type="email"
 							class="form-control"
-							id="name"
-							[(ngModel)]="user.name"
-							[ngModelOptions]="{ standalone: true }"
-							#name="ngModel"
-							name="name"
+							id="email"
+							minlength="4"
+							maxlength="40"
+							[(ngModel)]="user.email"
+							#email="ngModel"
+							name="email"
 							required>
+						<div class="margin-top-xs">
+							<div *ngIf="email.errors && (email.dirty || email.touched)"
+						     class="alert alert-danger">
+							<div [hidden]="!email.errors.required">
+								Email is required
+							</div>
+							<div [hidden]="!email.errors.minlength">
+								Email must be at least 4 characters long.
+							</div>
+							<div [hidden]="!email.errors.maxlength">
+								Email cannot be more than 40 characters long.
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="form-group">
-					<label for="firstName">FirstName</label>
+					<label for="password">Password</label>
 					<input
-							type="text"
+							type="password"
 							class="form-control"
-							id="firstName"
-							[(ngModel)]="user.firstName"
-							[ngModelOptions]="{ standalone: true }"
-							#firstName="ngModel"
+							name="password"
+							id="password"
+							[(ngModel)]="user.password"
+							#password="ngModel"
 							required>
 				</div>
-				<button type="submit" class="btn btn-success">Submit</button>
+				<button
+						type="submit"
+						[disabled]="!userForm.form.valid"
+						class="btn btn-success">Submit
+				</button>
 			</form>
 		</div>
 	</div>
