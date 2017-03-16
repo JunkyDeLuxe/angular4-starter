@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { BrowserModule }  from '@angular/platform-browser';
 import { DropdownModule } from 'ng2-bootstrap'; // ui-bootstrap //
@@ -11,7 +10,6 @@ import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
 
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 
 /** routes **/
@@ -23,7 +21,6 @@ import './app.module.less';
     imports: [
         BrowserModule,
         HttpModule,
-        FormsModule,
         DropdownModule.forRoot(),
         TranslateModule.forRoot({
             provide: TranslateLoader,
@@ -37,7 +34,6 @@ import './app.module.less';
         HeaderComponent,
         FooterComponent,
         HomeComponent,
-        LoginComponent,
         AboutComponent
     ],
     bootstrap: [ AppComponent ]
