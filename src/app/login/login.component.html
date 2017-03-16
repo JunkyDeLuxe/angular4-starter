@@ -1,0 +1,38 @@
+<div class="login container margin-bottom-sm">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h1 class="text-15">User login page</h1>
+
+			<div>
+				{{ diagnostic }}
+			</div>
+
+			<form class="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input
+							type="text"
+							class="form-control"
+							id="name"
+							[(ngModel)]="user.name"
+							[ngModelOptions]="{ standalone: true }"
+							#name="ngModel"
+							name="name"
+							required>
+				</div>
+				<div class="form-group">
+					<label for="firstName">FirstName</label>
+					<input
+							type="text"
+							class="form-control"
+							id="firstName"
+							[(ngModel)]="user.firstName"
+							[ngModelOptions]="{ standalone: true }"
+							#firstName="ngModel"
+							required>
+				</div>
+				<button type="submit" class="btn btn-success">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
