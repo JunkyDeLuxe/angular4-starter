@@ -2,6 +2,12 @@
   "home": {
     "title": "Bonjour depuis Angular App propulsée avec Webpack"
   },
+  "header": {
+    "links": {
+      "about": "A propos",
+      "login": "Se logguer"
+    }
+  },
   "components": {
     "languages": {
       "labels": {
