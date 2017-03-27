@@ -16,13 +16,15 @@ module.exports = function makeWebpackConfig() {
 
 	var config = {};
 
-	config.devtool = 'eval-source-map';
+	config.devtool = isTest ? 'inline-source-map' : 'eval-source-map';
 
-	config.entry = isTest ? {} : {
-		'polyfills': './src/polyfills.ts',
-		'vendor': './src/vendor.ts',
-		'app': './src/main.ts'
-	};
+	if (!isTest) {
+		config.entry = isTest ? {} : {
+			'polyfills': './src/polyfills.ts',
+			'vendor': './src/vendor.ts',
+			'app': './src/main.ts'
+		};
+	}
 
 	config.output = isTest ? {} : {
 		path: root('dist'),
@@ -91,18 +93,22 @@ module.exports = function makeWebpackConfig() {
 		}),
 		new webpack.ContextReplacementPlugin(
 			/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-			root('./src'),
-			{} // a map of your routes
-		),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: ['vendor', 'polyfills']
-		}),
-		new HtmlWebpackPlugin({
-			template: 'src/index.html',
-			chunksSortMode: 'dependency'
-		}),
-		new ExtractTextPlugin({ filename: 'css/[name].[hash].css' })
+			root('./src')
+		)
 	];
+
+	if (!isTest) {
+		config.plugins.push(
+			new webpack.optimize.CommonsChunkPlugin({
+				name: ['vendor', 'polyfills']
+			}),
+			new HtmlWebpackPlugin({
+				template: 'src/index.html',
+				chunksSortMode: 'dependency'
+			}),
+			new ExtractTextPlugin({ filename: 'css/[name].[hash].css' })
+		);
+	}
 
 	config.devServer = {
 		historyApiFallback: true,
