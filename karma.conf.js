@@ -64,19 +64,19 @@ module.exports = function (config) {
 		singleRun: true
 	};
 
-	if (!isTestWatch) {
-		_config.reporters.push("coverage");
-
-		_config.coverageReporter = {
-			dir: 'coverage/',
-			reporters: [{
-				type: 'json',
-				dir: 'coverage',
-				subdir: 'json',
-				file: 'coverage-final.json'
-			}]
-		};
-	}
+	// if (!isTestWatch) {
+	// 	_config.reporters.push("coverage");
+	//
+	// 	_config.coverageReporter = {
+	// 		dir: 'coverage/',
+	// 		reporters: [{
+	// 			type: 'json',
+	// 			dir: 'coverage',
+	// 			subdir: 'json',
+	// 			file: 'coverage-final.json'
+	// 		}]
+	// 	};
+	// }
 
 	config.set(_config);
 };

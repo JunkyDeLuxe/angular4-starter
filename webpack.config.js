@@ -3,19 +3,28 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+/**
+ * Env
+ * Get npm lifecycle event to identify the environment
+ */
+var ENV = process.env.npm_lifecycle_event;
+var isTestWatch = ENV === 'test-watch';
+var isTest = ENV === 'test' || isTestWatch;
+// var isProd = ENV === 'build'; not using it right now //
+
 module.exports = function makeWebpackConfig() {
 
 	var config = {};
 
 	config.devtool = 'eval-source-map';
 
-	config.entry = {
+	config.entry = isTest ? {} : {
 		'polyfills': './src/polyfills.ts',
 		'vendor': './src/vendor.ts',
 		'app': './src/main.ts'
 	};
 
-	config.output = {
+	config.output = isTest ? {} : {
 		path: root('dist'),
 		publicPath: 'http://localhost:8080/',
 		filename: 'js/[name].js',
@@ -36,7 +45,7 @@ module.exports = function makeWebpackConfig() {
 					},
 					'awesome-typescript-loader'
 				],
-				exclude: /node_modules\/(?!(ng2-.+))/
+				exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
 			},
 			{
 				test: /\.ts$/,
@@ -77,6 +86,9 @@ module.exports = function makeWebpackConfig() {
 	};
 
 	config.plugins = [
+		new webpack.DefinePlugin({
+			'process.env': { ENV: JSON.stringify(ENV) }
+		}),
 		new webpack.ContextReplacementPlugin(
 			/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
 			root('./src'),
