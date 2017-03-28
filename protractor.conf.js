@@ -24,13 +24,12 @@ exports.config = {
 	},
 
 	onPrepare: function () {
-		// var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
-		// // add jasmine spec reporter
-		// jasmine.getEnv().addReporter(new SpecReporter({ displayStacktrace: true }));
+		var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+		// add jasmine spec reporter
+		jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: true}));
 
 		browser.ignoreSynchronization = true;
 	},
-
 
 	/**
 	 * Angular 2 configuration
