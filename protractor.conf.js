@@ -1,5 +1,6 @@
 exports.config = {
 	baseUrl: 'http://localhost:8080/',
+	seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
 
 	specs: [
 		'src/**/*.e2e-spec.js'
@@ -13,8 +14,8 @@ exports.config = {
 	jasmineNodeOpts: {
 		showTiming: true,
 		showColors: true,
-		isVerbose: false,
-		includeStackTrace: false,
+		isVerbose: true,
+		includeStackTrace: true,
 		defaultTimeoutInterval: 400000
 	},
 	directConnect: true,
@@ -24,13 +25,12 @@ exports.config = {
 	},
 
 	onPrepare: function () {
-		// var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
-		// // add jasmine spec reporter
-		// jasmine.getEnv().addReporter(new SpecReporter({ displayStacktrace: true }));
-
-		browser.ignoreSynchronization = true;
+		jasmine.getEnv().addReporter(
+			new Jasmine2HtmlReporter({
+				savePath: 'screenshots'
+			})
+		)
 	},
-
 
 	/**
 	 * Angular 2 configuration

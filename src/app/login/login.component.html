@@ -1,4 +1,13 @@
 <div class="login container margin-bottom-sm">
+
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3 margin-top-sm margin-bottom-none">
+			<div *ngIf="submitted" class="submitted alert alert-success">
+				Your are logged. You will be redirected ...
+			</div>
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
 			<h1 class="text-15">User login page</h1>
