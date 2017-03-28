@@ -1,12 +1,11 @@
-describe('login form', function () {
+describe('Login', function () {
 	beforeEach(function () {
 		browser.get('/login');
 	});
 
-	it('should display login user ...', function () {
-		const login = element(by.className('login'));;
-
-		expect(login.isPresent()).toEqual(false);
+	it('should have <my-login>', function () {
+		var login = element(by.css('my-app my-login'));
+		expect(login.isPresent()).toEqual(true);
 
 		login.element(by.name("email")).sendKeys("test@gmail.com");
 		login.element(by.name("password")).sendKeys("azerty1988");
@@ -15,6 +14,7 @@ describe('login form', function () {
 
 		const success = login.element(by.className("alert-success"));
 
-		expect($(success).isPresent()).toBeFalsy();
+		expect(success.isPresent()).toEqual(true);
+		browser.sleep(1000);
 	});
 });
