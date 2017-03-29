@@ -6,8 +6,10 @@ import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-tra
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AuthModule } from './components/auth/auth.module';
 import { AuthGuard } from './components/auth/auth-guard.service';
 import { AuthService } from './components/auth/auth.service';
+import { StoreService } from './components/storage/store.service';
 
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
@@ -32,7 +34,8 @@ import './app.module.less';
             useFactory: (http: Http) => new TranslateStaticLoader(http, '/public/locales', '.json'),
             deps: [Http]
         }),
-        routing
+        routing,
+        AuthModule
     ],
     declarations: [
         AppComponent,
@@ -42,7 +45,7 @@ import './app.module.less';
         AboutComponent,
         LoginComponent
     ],
-    providers: [ AuthGuard, AuthService ],
+    providers: [ AuthGuard, AuthService, StoreService ],
     bootstrap: [ AppComponent ]
 })
 

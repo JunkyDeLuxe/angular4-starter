@@ -15,4 +15,5 @@ function authHttpServiceFactory(http: Http, options: RequestOptions) {
         }
     ]
 })
+
 export class AuthModule {}
