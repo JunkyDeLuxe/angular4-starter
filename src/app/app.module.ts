@@ -6,6 +6,8 @@ import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-tra
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AuthGuard } from './components/auth/auth-guard.service';
+import { AuthService } from './components/auth/auth.service';
 
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
@@ -40,6 +42,7 @@ import './app.module.less';
         AboutComponent,
         LoginComponent
     ],
+    providers: [ AuthGuard, AuthService ],
     bootstrap: [ AppComponent ]
 })
 
