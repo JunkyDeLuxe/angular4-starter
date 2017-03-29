@@ -14,8 +14,21 @@ $ npm install
 
 # start the server
 $ npm run start
-
 ```
 
 2/
 Launch a web browser and go http://localhost:8080
+
+
+3/
+Test End to End with Protractor, Jasmine framework and Selenium for Chrome only.
+```
+# install Selenium
+# From a new term tab, launch chrome webdrivers
+./node_modules/protractor/bin/webdriver-manager start
+
+# From an other term tab, launch npm start.
+
+# From an other term tab
+npm run e2e
+```
