@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
                 /** can we force angular state refreshing like with angular ui router ? **/
                 setTimeout(() => {
                     this.router.navigate(['']).then(() => {
+                        this.submitted = false;
                         window.location.reload();
                     });
                 }, 1000);

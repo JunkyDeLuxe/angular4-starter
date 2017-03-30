@@ -57,7 +57,7 @@
 				</div>
 				<button
 						type="submit"
-						[disabled]="!userForm.form.valid"
+						[disabled]="!userForm.form.valid || submitted"
 						class="btn btn-success">Submit
 				</button>
 			</form>
