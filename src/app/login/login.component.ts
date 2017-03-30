@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
     submitted: boolean;
+    validated: boolean;
     user: User;
 
     constructor(
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         console.log('login page loaded');
         this.submitted = false;
+        this.validated = false;
         this.user = new User();
     }
 
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
 
                 let profile = this.jwtHelper.decodeToken(token);
                 this.storeService.set('profile', profile);
+                this.validated = true;
 
                 /** can we force angular state refreshing like with angular ui router ? **/
                 setTimeout(() => {
