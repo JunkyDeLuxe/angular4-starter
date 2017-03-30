@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { BrowserModule }  from '@angular/platform-browser';
-import { DropdownModule } from 'ng2-bootstrap'; // ui-bootstrap //
+import { BsDropdownModule } from 'ng2-bootstrap'; // ui-bootstrap //
 import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-translate';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AuthGuard } from './components/auth/auth-guard.service';
@@ -26,7 +26,7 @@ import './app.module.less';
         BrowserModule,
         HttpModule,
         FormsModule,
-        DropdownModule.forRoot(),
+        BsDropdownModule.forRoot(),
         TranslateModule.forRoot({
             provide: TranslateLoader,
             useFactory: (http: Http) => new TranslateStaticLoader(http, '/public/locales', '.json'),
