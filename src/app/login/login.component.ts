@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
-import { Http, Response }  from '@angular/http';
-import { AuthHttp, tokenNotExpired, JwtHelper } from 'angular2-jwt';
+import { Http }  from '@angular/http';
+import { JwtHelper } from 'angular2-jwt';
 import { StoreService } from '../components/storage/store.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'my-login',
@@ -15,7 +16,11 @@ export class LoginComponent implements OnInit {
     submitted: boolean;
     user: User;
 
-    constructor(private authHttp: AuthHttp, private http: Http, private jwtHelper: JwtHelper, private storeService: StoreService) {
+    constructor(
+        private http: Http,
+        private jwtHelper: JwtHelper,
+        private storeService: StoreService,
+        private router: Router) {
         this.jwtHelper = new JwtHelper();
     }
 
@@ -28,16 +33,21 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
-        console.log('submitted => ', this.user);
         this.http.post('/api/sessions', this.user, {})
             .toPromise()
             .then((res) => {
                 let token = res.json();
-                this.storeService.set('token', token);
+                this.storeService.set('id_token', token);
 
                 let profile = this.jwtHelper.decodeToken(token);
                 this.storeService.set('profile', profile);
-                console.log(profile);
+
+                /** can we force angular state refreshing like with angular ui router ? **/
+                setTimeout(() => {
+                    this.router.navigate(['']).then(() => {
+                        window.location.reload();
+                    });
+                }, 1000);
             });
     }
 
