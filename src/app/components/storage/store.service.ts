@@ -11,4 +11,8 @@ export class StoreService {
     set(key, data) {
         window.localStorage.setItem(key, JSON.stringify(data));
     }
+
+    del(key) {
+        window.localStorage.removeItem(key);
+    }
 }
