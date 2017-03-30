@@ -1,4 +1,4 @@
-# angular2 with Webpack 2
+# angular v4 with Webpack 2+
 
 A complete, yet simple, starter for Angular 2 using Webpack.
 
