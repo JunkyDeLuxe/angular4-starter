@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 import { Http }  from '@angular/http';
+import { HttpFallback } from '../components/http/http.fallback.service';
 import { JwtHelper } from 'angular2-jwt';
 import { StoreService } from '../components/storage/store.service';
 import { Router } from '@angular/router';
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
         private http: Http,
         private jwtHelper: JwtHelper,
         private storeService: StoreService,
+        private httpFallback: HttpFallback,
         private router: Router) {
         this.jwtHelper = new JwtHelper();
     }
@@ -52,24 +54,11 @@ export class LoginComponent implements OnInit {
                         window.location.reload();
                     });
                 }, 1000);
-            });
+            })
+            .catch(error => this.httpFallback.fallback(error));
     }
 
     get diagnostic() {
         return JSON.stringify(this.user);
     }
-
-    // private handleError (error: Response | any) {
-    //     // In a real world app, we might use a remote logging infrastructure
-    //     let errMsg: string;
-    //     if (error instanceof Response) {
-    //         const body = error.json() || '';
-    //         const err = body.error || JSON.stringify(body);
-    //         errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    //     } else {
-    //         errMsg = error.message ? error.message : error.toString();
-    //     }
-    //     console.error(errMsg);
-    //     return Promise.reject(errMsg);
-    // }
 }

@@ -6,14 +6,17 @@ import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-tra
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { UnavailableServiceComponent } from './unavailableservice/unavailableservice.component';
 import { AuthModule } from './components/auth/auth.module';
+
+/** providers **/
 import { AuthGuard } from './components/auth/auth-guard.service';
 import { AuthService } from './components/auth/auth.service';
+import { HttpFallback} from './components/http/http.fallback.service';
 import { StoreService } from './components/storage/store.service';
 
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
-
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
@@ -39,13 +42,19 @@ import './app.module.less';
     ],
     declarations: [
         AppComponent,
+        UnavailableServiceComponent,
         HeaderComponent,
         FooterComponent,
         HomeComponent,
         AboutComponent,
         LoginComponent
     ],
-    providers: [ AuthGuard, AuthService, StoreService ],
+    providers: [
+        AuthGuard,
+        AuthService,
+        StoreService,
+        HttpFallback
+    ],
     bootstrap: [ AppComponent ]
 })
 
