@@ -1,6 +1,6 @@
 # angular v4 with Webpack 2+
 
-A complete, yet simple, starter for Angular 2 using Webpack.
+A complete, yet simple, starter for Angular 2 using Webpack works with JWT
 
 1/
 ```
@@ -32,3 +32,8 @@ Test End to End with Protractor, Jasmine framework and Selenium for Chrome only.
 # From an other term tab
 npm run e2e
 ```
+
+4/ Using webpack dev server with a proxy url for your API routes.
+Just use /api in order to by pass with the webpack proxy.
+
+5/ Using less files and variables.
