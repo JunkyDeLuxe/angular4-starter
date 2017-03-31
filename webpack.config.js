@@ -90,6 +90,15 @@ module.exports = function makeWebpackConfig() {
 		]
 	};
 
+	if (!isTest || !isTestWatch) {
+		// tslint support
+		config.module.rules.push({
+			test: /\.ts$/,
+			enforce: 'pre',
+			loader: 'tslint-loader'
+		});
+	}
+
 	config.plugins = [
 		new webpack.DefinePlugin({
 			'process.env': { ENV: JSON.stringify(ENV) }
@@ -97,7 +106,13 @@ module.exports = function makeWebpackConfig() {
 		new webpack.ContextReplacementPlugin(
 			/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
 			root('./src')
-		)
+		),
+		new webpack.LoaderOptionsPlugin({
+			tslint: {
+				emitErrors: false,
+				failOnHint: false
+			}
+		})
 	];
 
 	if (!isTest) {
