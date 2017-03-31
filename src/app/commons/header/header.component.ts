@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 import { AuthService } from '../../components/auth/auth.service';
+import { AuthHttp } from 'angular2-jwt';
+import { Router } from '@angular/router';
+import { StoreService } from '../../components/storage/store.service';
 
 @Component({
     selector: 'my-header',
@@ -9,25 +12,30 @@ import { AuthService } from '../../components/auth/auth.service';
 })
 
 export class HeaderComponent implements OnInit {
-    private translateService: TranslateService;
-    private authService: AuthService;
     private languages: Array<string>;
     private logged: Boolean;
+    private translateService: TranslateService;
 
-    constructor(translate: TranslateService, authService: AuthService) {
-        this.translateService = translate;
+    constructor(
+        private translate: TranslateService,
+        private store: StoreService,
+        private authHttp: AuthHttp,
+        private router: Router,
+        private authService: AuthService) {
+
         this.languages = translate.getLangs();
-        this.authService = authService;
+        this.translateService = translate;
     }
 
     ngOnInit() {
-        console.log('Header component loaded');
         this.logged = this.authService.loggedIn();
-
-        console.log('user logged => ', this.logged);
     }
 
     logout() {
-        console.log('want loggout');
+        // this.authHttp.get('/api/sessions/logout') ...
+        this.store.del('id_token');
+        this.store.del('profile');
+        this.logged = false;
+        this.router.navigate(['login']);
     }
 }

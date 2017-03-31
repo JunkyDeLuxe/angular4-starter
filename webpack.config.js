@@ -115,7 +115,13 @@ module.exports = function makeWebpackConfig() {
 	config.devServer = {
 		historyApiFallback: true,
 		quiet: true,
-		stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
+		stats: 'minimal', // none (or false), errors-only, minimal, normal (or true) and verbose
+		proxy: {
+			"/api": {
+				target: "http://localhost:3000", // to be changed by the good api url
+				pathRewrite: {"^/api" : ""}
+			}
+		}
 	};
 
 	return config;

@@ -16,12 +16,12 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li>
+				<li routerLinkActive="active">
 					<a [routerLink]="['about']">{{ 'header.links.about' | translate }}</a>
 				</li>
-				<li>
+				<li routerLinkActive="active">
 					<a *ngIf="!logged" [routerLink]="['login']">{{ 'header.links.login' | translate }}</a>
-					<a *ngIf="logged" (click)="logout()">Log Out</a>
+					<a *ngIf="logged" (click)="logout()" class="cursor-pointer">Log Out</a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

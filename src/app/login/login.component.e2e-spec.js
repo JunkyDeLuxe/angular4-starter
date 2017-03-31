@@ -12,9 +12,10 @@ describe('Login', function () {
 
 		login.element(by.className("btn")).click();
 
-		const success = login.element(by.className("alert-success"));
-
-		expect(success.isPresent()).toEqual(true);
-		browser.sleep(1000);
+		/** Ajax call login here, waiting post request finished **/
+		browser.waitForAngular().then(function () {
+			const success = login.element(by.className("alert-success"));
+			expect(success.isPresent()).toEqual(true);
+		});
 	});
 });
