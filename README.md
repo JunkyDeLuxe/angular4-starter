@@ -1,7 +1,7 @@
-# angular v4 with Webpack 2+
+# Angular v4 with Webpack 2+
 
 A complete, yet simple, starter for Angular 2 using Webpack works with JWT
-Including a login, about, commons header and footer components in order to create a generic skeleton
+Including a login, about, 404, commons header and footer components in order to create a generic skeleton
 
 1/
 ```
