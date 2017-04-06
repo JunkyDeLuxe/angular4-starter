@@ -20,7 +20,6 @@ $ npm run start
 2/
 Launch a web browser and go http://localhost:8080
 
-
 3/
 Test End to End with Protractor, Jasmine framework and Selenium for Chrome only.
 ```
@@ -38,3 +37,9 @@ npm run e2e
 Just use /api in order to by pass with the webpack proxy.
 
 5/ Using less files and variables.
+
+# Production
+To build your application, run:
+
+npm run build
+You can now go to /dist and deploy that to your server!
