@@ -12,7 +12,7 @@ import { AuthModule } from './components/auth/auth.module';
 /** providers **/
 import { AuthGuard } from './components/auth/auth-guard.service';
 import { AuthService } from './components/auth/auth.service';
-import { HttpFallback} from './components/http/http.fallback.service';
+import { HttpFallback } from './components/http/http.fallback.service';
 import { StoreService } from './components/storage/store.service';
 
 import { HeaderComponent } from './commons/header/header.component';

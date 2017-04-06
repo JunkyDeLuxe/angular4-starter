@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'my-login',
     templateUrl: './login.component.html',
-    providers: [JwtHelper]
+    providers: [ JwtHelper ]
 })
 
 export class LoginComponent implements OnInit {
