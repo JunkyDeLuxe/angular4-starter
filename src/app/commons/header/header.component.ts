@@ -7,7 +7,7 @@ import { StoreService } from '../../components/storage/store.service';
 
 @Component({
     selector: 'my-header',
-    template: require('./header.component.html'),
+    templateUrl: './header.component.html',
     providers: [AuthService]
 })
 

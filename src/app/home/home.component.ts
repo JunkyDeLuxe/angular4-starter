@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'my-home',
-    template: require('./home.component.html')
+    templateUrl: './home.component.html'
 })
 
 export class HomeComponent implements OnInit {

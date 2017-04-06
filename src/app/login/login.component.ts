@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'my-login',
-    template: require('./login.component.html'),
+    templateUrl: './login.component.html',
     providers: [JwtHelper]
 })
 
