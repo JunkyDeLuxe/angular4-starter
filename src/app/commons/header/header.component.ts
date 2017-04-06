@@ -8,16 +8,16 @@ import { StoreService } from '../../components/storage/store.service';
 @Component({
     selector: 'my-header',
     templateUrl: './header.component.html',
-    providers: [AuthService]
+    providers: [ AuthService ]
 })
 
 export class HeaderComponent implements OnInit {
+    logged: Boolean;
+    translateService: TranslateService;
     private languages: Array<string>;
-    private logged: Boolean;
-    private translateService: TranslateService;
 
     constructor(
-        private translate: TranslateService,
+        translate: TranslateService,
         private store: StoreService,
         private authHttp: AuthHttp,
         private router: Router,
