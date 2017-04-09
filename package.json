@@ -4,7 +4,7 @@
   "description": "todolist with webpack and angular2",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --bail --port 8080",
+    "start": "webpack-dev-server --progress --port 8080",
     "test": "karma start",
     "build": "rimraf dist && webpack --progress --profile --bail",
     "e2e": "protractor",
