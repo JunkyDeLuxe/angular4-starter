@@ -37,10 +37,15 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
-        this.http.post('/api/sessions', this.user, {})
-            .toPromise()
-            .then((res) => {
-                let token = res.json();
+        this.http.post('/api/login', this.user, {})
+            .map(res => {
+                if (res.status === 404) {
+                    throw new Error('bad login or password');
+                    // display error front message //
+                } else { return res.json(); }
+            })
+            .subscribe((data) => {
+                let token = data.token;
                 this.storeService.set('id_token', token);
 
                 let profile = this.jwtHelper.decodeToken(token);
@@ -54,8 +59,7 @@ export class LoginComponent implements OnInit {
                         window.location.reload();
                     });
                 }, 1000);
-            })
-            .catch(error => this.httpFallback.fallback(error));
+            }, (err) => this.httpFallback.fallback(err));
     }
 
     get diagnostic() {

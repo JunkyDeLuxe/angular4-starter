@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Response } from '@angular/http';
 
 @Injectable()
 export class HttpFallback {
