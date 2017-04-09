@@ -6,7 +6,7 @@ import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-tra
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { UnavailableServiceComponent } from './unavailableservice/unavailableservice.component';
+import { UnavailableComponent } from './unavailable/unavailable.component';
 import { AuthModule } from './components/auth/auth.module';
 
 /** providers **/
@@ -42,7 +42,7 @@ import './app.module.less';
     ],
     declarations: [
         AppComponent,
-        UnavailableServiceComponent,
+        UnavailableComponent,
         HeaderComponent,
         FooterComponent,
         HomeComponent,
