@@ -1,0 +1,28 @@
+// Mixins
+@import '~mixgen/assets/sass/variables';
+@import '~mixgen/assets/sass/borders';
+@import '~mixgen/assets/sass/colors';
+@import '~mixgen/assets/sass/margins';
+@import '~mixgen/assets/sass/paddings';
+@import '~mixgen/assets/sass/text-align';
+@import '~mixgen/assets/sass/texts';
+@import '~mixgen/assets/sass/lineheights';
+@import '~mixgen/assets/sass/verticals';
+
+// Font Awesome
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
+
+@import 'components/styles/sass/_colors.scss';
+@import 'components/styles/sass/_navbar.scss';
+@import 'components/styles/sass/_variables.scss';
+@import 'components/styles/sass/_fonts.scss';
+
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+/** customs modules **/
+@import "commons/footer/footer.component";
+@import "home/home.component";
+@import "login/login.component";
+@import "unavailable/unavailable.component";

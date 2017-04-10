@@ -34,7 +34,7 @@ module.exports = function makeWebpackConfig() {
 	};
 
 	config.resolve = {
-		extensions: ['.ts', '.js', '.json', '.css', '.less', '.html']
+		extensions: ['.ts', '.js', '.json', '.css', '.scss', '.html']
 	};
 
 	var atlOptions = '';
@@ -65,20 +65,31 @@ module.exports = function makeWebpackConfig() {
 				loader: 'file-loader?name=img/[name].[hash].[ext]?'
 			},
 			{
-				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: "style-loader",
-					use: "css-loader"
-				})
+				test: /\.less$/,
+				loader: 'ignore-loader'
 			},
 			{
-				test: /\.less$/,
+				test: /\.(scss|sass)$/,
 				exclude: /node_modules/,
 				loader: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader', 'less-loader']
+					use: ['css-loader', 'sass-loader']
 				})
 			},
+			// {
+			// 	test: /\.css$/,
+			// 	use: ExtractTextPlugin.extract({
+			// 		fallback: "style-loader",
+			// 		use: "css-loader"
+			// 	})
+			// },
+			// {
+			// 	test: /\.less$/,
+			// 	exclude: /node_modules/,
+			// 	loader: ExtractTextPlugin.extract({
+			// 		fallback: 'style-loader',
+			// 		use: ['css-loader', 'less-loader']
+			// 	})
+			// },
 			{
 				test: /\.html$/,
 				use: 'raw-loader',
