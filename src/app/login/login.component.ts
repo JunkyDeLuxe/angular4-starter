@@ -6,6 +6,9 @@ import { JwtHelper } from 'angular2-jwt';
 import { StoreService } from '../components/storage/store.service';
 import { Router } from '@angular/router';
 
+// Tslint and Tsconfig don't have globals variables namespaces //
+const isEmpty = require('lodash/isEmpty');
+
 @Component({
     selector: 'my-login',
     templateUrl: './login.component.html',
@@ -36,6 +39,10 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
+
+        if (isEmpty(this.user)) {
+            return false;
+        }
 
         this.http.post('/api/login', this.user, {})
             .map(res => {
