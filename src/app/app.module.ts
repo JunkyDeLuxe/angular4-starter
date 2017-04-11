@@ -24,7 +24,6 @@ import { LoginComponent } from './login/login.component';
 /** routes **/
 import { routing } from './app.routing';
 
-// import './app.module.less';
 require('./app.component.scss');
 
 @NgModule({

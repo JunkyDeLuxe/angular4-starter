@@ -10,10 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './components/auth/auth-guard.service';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'unavailable-service', component: UnavailableComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'about', component: AboutComponent, canActivate: [ AuthGuard ] },
+	{ path: '', component: HomeComponent },
+	{ path: 'unavailable-service', component: UnavailableComponent },
+	{ path: 'login', component: LoginComponent },
+	{ path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
 ];
 
 export const routing = RouterModule.forRoot(routes);
