@@ -13,7 +13,7 @@ const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'unavailable-service', component: UnavailableComponent },
 	{ path: 'login', component: LoginComponent },
-	{ path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
+	{ path: 'about', component: AboutComponent, canActivate: [AuthGuard] }
 ];
 
 export const routing = RouterModule.forRoot(routes);
