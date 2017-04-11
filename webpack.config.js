@@ -70,7 +70,6 @@ module.exports = function makeWebpackConfig() {
 			},
 			{
 				test: /\.(scss|sass)$/,
-				exclude: /node_modules/,
 				loader: ExtractTextPlugin.extract({
 					use: ['css-loader', 'sass-loader']
 				})
