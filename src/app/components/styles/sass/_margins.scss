@@ -1,0 +1,6 @@
+$margin-xs: 10px;
+$margin-sm: 20px;
+$margin-md: 25px;
+$margin-lg: 40px;
+
+@include generate-margins($sizes: ('none': 0, 'xs': $margin-xs, 'sm': $margin-sm, 'md': $margin-md, 'lg': $margin-lg));
