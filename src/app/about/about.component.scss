@@ -1,5 +1,5 @@
 .about {
-  color: @white;
+  color: $white;
   margin-top: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -9,7 +9,7 @@
   }
 
   hr.star-light {
-    border-color: @white;
+    border-color: $white;
   }
 
   hr.star-light, hr.star-primary {
@@ -22,8 +22,8 @@
   }
 
   hr.star-light:after {
-    background-color: @green1;
-    color: @white;
+    background-color: $green1;
+    color: $white;
   }
 
   hr.star-light:after, hr.star-primary:after {

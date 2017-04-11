@@ -1,0 +1,13 @@
+$white: #FFF;
+$blue1: #2C3E50;
+$green1: #18BC9C;
+$black1: #233140;
+
+$colors: (
+  white: $white,
+  blue1: $blue1,
+  green1: $green1,
+  black1: $black1
+);
+
+@include generate-colors($colors);
