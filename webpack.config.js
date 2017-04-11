@@ -74,21 +74,6 @@ module.exports = function makeWebpackConfig() {
 					use: ['css-loader', 'sass-loader']
 				})
 			},
-			// {
-			// 	test: /\.css$/,
-			// 	use: ExtractTextPlugin.extract({
-			// 		fallback: "style-loader",
-			// 		use: "css-loader"
-			// 	})
-			// },
-			// {
-			// 	test: /\.less$/,
-			// 	exclude: /node_modules/,
-			// 	loader: ExtractTextPlugin.extract({
-			// 		fallback: 'style-loader',
-			// 		use: ['css-loader', 'less-loader']
-			// 	})
-			// },
 			{
 				test: /\.html$/,
 				use: 'raw-loader',
