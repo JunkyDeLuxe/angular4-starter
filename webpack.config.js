@@ -65,10 +65,6 @@ module.exports = function makeWebpackConfig() {
 				loader: 'file-loader?name=img/[name].[hash].[ext]?'
 			},
 			{
-				test: /\.less$/,
-				loader: 'ignore-loader'
-			},
-			{
 				test: /\.(scss|sass)$/,
 				loader: ExtractTextPlugin.extract({
 					use: ['css-loader', 'sass-loader']
