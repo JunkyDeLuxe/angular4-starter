@@ -7,7 +7,7 @@ import { StoreService } from '../components/storage/store.service';
 import { Router } from '@angular/router';
 
 // Tslint and Tsconfig don't have globals variables namespaces //
-const isEmpty = require('lodash/isEmpty');
+import { isEmpty } from 'lodash';
 
 @Component({
 	selector: 'my-login',
