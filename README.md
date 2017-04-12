@@ -38,7 +38,7 @@ npm run e2e
 4/ Using webpack dev server with a proxy url for your API routes.
 Just use /api in order to by pass with the webpack proxy.
 
-5/ Using less files and variables.
+5/ Using SASS/SCSS files and variables.
 
 # Production
 To build your application, run:

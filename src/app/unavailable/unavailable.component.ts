@@ -11,4 +11,3 @@ export class UnavailableComponent implements OnInit {
 
     ngOnInit() {}
 }
-
