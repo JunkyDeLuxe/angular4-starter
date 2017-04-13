@@ -5,27 +5,27 @@ import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-tra
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { UnavailableComponent } from './unavailable/unavailable.component';
 import { AuthModule } from './components/auth/auth.module';
 
-/** providers **/
+/** PROVIDERS **/
 import { AuthGuard } from './components/auth/auth-guard.service';
 import { AuthService } from './components/auth/auth.service';
 import { HttpFallback } from './components/http/http.fallback.service';
 import { StoreService } from './components/storage/store.service';
 
+/*** MODULES ***/
+import { HomeModule } from './home/home.module';
+import { LoginModule } from './login/login.module';
+import { AboutModule } from './about/about.module';
+import { UnavailableModule } from './unavailable/unavailable.module';
+
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
-import { NgbdModalContentComponent } from './components/services/modals/hellohome/hellohome.modal.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { LoginComponent } from './login/login.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-/** routes **/
 import { routing } from './app.routing';
 
+/** SCSS APP **/
 require('./app.component.scss');
 
 @NgModule({
@@ -40,20 +40,16 @@ require('./app.component.scss');
             deps: [Http]
         }),
         routing,
-        AuthModule
+        AuthModule,
+	    HomeModule,
+	    LoginModule,
+	    AboutModule,
+	    UnavailableModule
     ],
     declarations: [
         AppComponent,
-        UnavailableComponent,
         HeaderComponent,
-        FooterComponent,
-	    NgbdModalContentComponent,
-        HomeComponent,
-        AboutComponent,
-        LoginComponent
-    ],
-    entryComponents: [
-	    NgbdModalContentComponent
+        FooterComponent
     ],
     providers: [
         AuthGuard,
