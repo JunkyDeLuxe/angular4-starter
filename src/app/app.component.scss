@@ -21,7 +21,7 @@ $fa-font-path: "~font-awesome/fonts";
 @import "components/styles/sass/_margins.scss";
 
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss";
-@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "~bootstrap/scss/bootstrap.scss";
 
 /** customs modules **/
 @import "commons/footer/footer.component";
