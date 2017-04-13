@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 /**
  * Env
@@ -67,7 +68,7 @@ module.exports = function makeWebpackConfig() {
 			{
 				test: /\.(scss|sass)$/,
 				loader: ExtractTextPlugin.extract({
-					use: ['css-loader', 'sass-loader']
+					use: ['css-loader', 'postcss-loader', 'sass-loader']
 				})
 			},
 			{
