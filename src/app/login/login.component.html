@@ -1,70 +1,71 @@
-<div class="login container margin-bottom-lg-lg">
-
-	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3 margin-top-sm margin-bottom-none">
-			<div *ngIf="validated" class="submitted alert alert-success">
-				Your are logged. You will be redirected ...
+<div class="login background-green1-sm">
+	<div class="container padding-bottom-lg-lg">
+		<div class="row">
+			<div class="col-sm-6 offset-sm-3 margin-bottom-none">
+				<div *ngIf="validated" class="submitted alert alert-success">
+					Your are logged. You will be redirected ...
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
-			<h1 class="text-15">
-				<i class="fa fa-user-circle" aria-hidden="true"></i>
-				User login page
-			</h1>
+		<div class="row">
+			<div class="col-sm-6 offset-sm-3">
+				<h1 class="text-15">
+					<i class="fa fa-user-circle" aria-hidden="true"></i>
+					User login page
+				</h1>
 
-			<!-- remove it, just checking form data entries -->
-			<div>
-				{{ diagnostic }}
-			</div>
+				<!-- remove it, just checking form data entries -->
+				<div>
+					{{ diagnostic }}
+				</div>
 
-			<form class="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input
-							type="email"
-							class="form-control"
-							id="email"
-							minlength="4"
-							maxlength="40"
-							[(ngModel)]="user.email"
-							#email="ngModel"
-							name="email"
-							required>
+				<form class="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input
+								type="email"
+								class="form-control"
+								id="email"
+								minlength="4"
+								maxlength="40"
+								[(ngModel)]="user.email"
+								#email="ngModel"
+								name="email"
+								required>
 						<div class="margin-top-xs-xs">
 							<div *ngIf="email.errors && (email.dirty || email.touched)"
-						     class="alert alert-danger">
-							<div [hidden]="!email.errors.required">
-								Email is required
-							</div>
-							<div [hidden]="!email.errors.minlength">
-								Email must be at least 4 characters long.
-							</div>
-							<div [hidden]="!email.errors.maxlength">
-								Email cannot be more than 40 characters long.
+							     class="alert alert-danger">
+								<div [hidden]="!email.errors.required">
+									Email is required
+								</div>
+								<div [hidden]="!email.errors.minlength">
+									Email must be at least 4 characters long.
+								</div>
+								<div [hidden]="!email.errors.maxlength">
+									Email cannot be more than 40 characters long.
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="password">Password</label>
-					<input
-							type="password"
-							class="form-control"
-							name="password"
-							id="password"
-							[(ngModel)]="user.password"
-							#password="ngModel"
-							required>
-				</div>
-				<button
-						type="submit"
-						[disabled]="!userForm.form.valid || submitted"
-						class="btn btn-success">Submit
-				</button>
-			</form>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input
+								type="password"
+								class="form-control"
+								name="password"
+								id="password"
+								[(ngModel)]="user.password"
+								#password="ngModel"
+								required>
+					</div>
+					<button
+							type="submit"
+							[disabled]="!userForm.form.valid || submitted"
+							class="btn btn-info">Submit
+					</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

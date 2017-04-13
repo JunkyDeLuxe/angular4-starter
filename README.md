@@ -38,7 +38,13 @@ npm run e2e
 4/ Using webpack dev server with a proxy url for your API routes.
 Just use /api in order to by pass with the webpack proxy.
 
-5/ Using SASS/SCSS files and variables.
+5/ CSS
+```
+SASS only.
+Using bootstrap alpha v4.
+Using ng-bootstrap official using bootstrap v4.
+Modals component example from home page using ng-bootstrap modules. 
+```
 
 # Production
 To build your application, run:

@@ -1,43 +1,35 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom affix-top">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a [routerLink]="['']" class="navbar-brand">
-				Skeleton
-			</a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li routerLinkActive="active">
-					<a [routerLink]="['about']">{{ 'header.links.about' | translate }}</a>
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#">Navbar</a>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item" routerLinkActive="active">
+					<a [routerLink]="['']" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li routerLinkActive="active">
-					<a *ngIf="!logged" [routerLink]="['login']">{{ 'header.links.login' | translate }}</a>
-					<a *ngIf="logged" (click)="logout()" class="cursor-pointer">Log Out</a>
+				<li class="nav-item" routerLinkActive="active">
+					<a class="nav-link" *ngIf="!logged" [routerLink]="['login']">{{ 'header.links.login' | translate }}</a>
+					<a class="nav-link" *ngIf="logged" (click)="logout()" class="cursor-pointer">Log Out</a>
+				</li>
+				<li class="nav-item" routerLinkActive="active">
+					<a class="nav-link" [routerLink]="['about']">{{ 'header.links.about' | translate }}</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<div class="btn-group margin-top-xs-xs" dropdown>
-						<button id="single-button" type="button" class="btn btn-default" dropdownToggle>
-							{{ translateService.currentLang }} <span class="caret"></span>
-						</button>
-						<ul *dropdownMenu class="dropdown-menu">
-							<li role="menuitem" *ngFor="let language of languages" (click)="translateService.use(language);">
-								<a class="dropdown-item">{{ language }}</a>
-							</li>
-						</ul>
-					</div>
-				</li>
-			</ul>
+			<div ngbDropdown class="d-inline-block">
+				<button class="btn btn-outline-primary cursor-pointer text-uppercase" id="dropdownMenu1" ngbDropdownToggle>
+					{{ translateService.currentLang }}
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<button
+							class="dropdown-item cursor-pointer text-uppercase"
+							*ngFor="let language of languages"
+							(click)="translateService.use(language);">
+						{{ language }}
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </nav>
