@@ -5,16 +5,36 @@
 	<title>Angular With Webpack</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.loading {
+			opacity: 0;
+			transition: opacity .8s ease-in-out;
+			position: fixed;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background: #000;
+			z-index: -1;
+		}
+		my-app:empty + .loading {
+			opacity: 1;
+			z-index: 100;
+		}
+		my-app:empty + .loading h1 {
+			color: #EEE;
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+			transform: translate(0, -50%);
+		}
+	</style>
 </head>
 <body>
-<my-app>
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				LOADING
-			</div>
-		</div>
+	<my-app></my-app>
+	<div class="loading">
+		<h1>Chargement de l'application ...</h1>
 	</div>
-</my-app>
 </body>
 </html>
