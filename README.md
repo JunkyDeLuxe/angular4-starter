@@ -43,6 +43,7 @@ Just use /api in order to by pass with the webpack proxy.
 SASS only.
 Using bootstrap alpha v4.
 Using ng-bootstrap official using bootstrap v4.
+Using postcss in order to postprocesses css rules.
 Modals component example from home page using ng-bootstrap modules. 
 ```
 
