@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login.component';
+import {TranslateModule} from "ng2-translate";
 
 const routes: Routes = [
 	{ path: 'login', component: LoginComponent }
@@ -12,6 +13,7 @@ const routes: Routes = [
 @NgModule({
 	imports: [
 		RouterModule.forChild(routes),
+		TranslateModule,
 		CommonModule,
 		FormsModule
 	],

@@ -8,6 +8,11 @@
       "login": "Se logguer"
     }
   },
+  "login": {
+    "labels": {
+      "submit": "Login"
+    }
+  },
   "components": {
     "languages": {
       "labels": {
