@@ -8,3 +8,7 @@ $navbar-default-link-hover-color: $green1;
 /** TYPOGRAPHY **/
 $font-family-sans-serif: "Montserrat";
 $font-family-base: $font-family-sans-serif;
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
