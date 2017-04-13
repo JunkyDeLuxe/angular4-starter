@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-import { RouterModule } from '@angular/router';
 import { BrowserModule }  from '@angular/platform-browser';
 import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-translate';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AuthModule } from './components/auth/auth.module';
 
-/** providers **/
+/** PROVIDERS **/
 import { AuthGuard } from './components/auth/auth-guard.service';
 import { AuthService } from './components/auth/auth.service';
 import { HttpFallback } from './components/http/http.fallback.service';
@@ -26,6 +25,7 @@ import { FooterComponent } from './commons/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { routing } from './app.routing';
 
+/** SCSS APP **/
 require('./app.component.scss');
 
 @NgModule({
