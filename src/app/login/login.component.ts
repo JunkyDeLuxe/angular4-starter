@@ -46,9 +46,9 @@ export class LoginComponent implements OnInit {
 		}
 
 		this.loadingBar.start();
-		this.http.post('/api/sessions', this.user, {})
+		this.http.post('/api/login', this.user, {})
 			.map(res => {
-				if (res.status === 404) {
+				if (res.status === 400) {
 					throw new Error('bad login or password');
 					// display error front message //
 				} else {
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
 			.subscribe((data) => {
 				this.loadingBar.complete();
 				let token = data.token;
-				this.storeService.set('id_token', token);
+				this.storeService.set('token', token);
 
 				let profile = this.jwtHelper.decodeToken(token);
 				this.storeService.set('profile', profile);

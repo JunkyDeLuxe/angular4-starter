@@ -11,7 +11,7 @@
 				</li>
 				<li class="nav-item" routerLinkActive="active">
 					<a class="nav-link" *ngIf="!logged" [routerLink]="['login']">{{ 'header.links.login' | translate }}</a>
-					<a class="nav-link" *ngIf="logged" (click)="logout()" class="cursor-pointer">Log Out</a>
+					<a class="nav-link cursor-pointer" *ngIf="logged" (click)="logout()">Log Out</a>
 				</li>
 				<li class="nav-item" routerLinkActive="active">
 					<a class="nav-link" [routerLink]="['about']">{{ 'header.links.about' | translate }}</a>

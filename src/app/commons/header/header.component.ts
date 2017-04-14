@@ -29,11 +29,12 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.logged = this.authService.loggedIn();
+        console.log('loggued => ', this.logged);
     }
 
     logout() {
         // this.authHttp.get('/api/sessions/logout') ...
-        this.store.del('id_token');
+        this.store.del('token');
         this.store.del('profile');
         this.logged = false;
         this.router.navigate(['login']);
