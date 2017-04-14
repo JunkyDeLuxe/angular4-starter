@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { TranslateModule } from 'ng2-translate';
+import { SharedModule } from '../commons/shared.module';
 
 import { HomeComponent } from './home.component';
 import { NgbdModalContentComponent } from '../components/services/modals/hellohome/hellohome.modal.component';
 
 @NgModule({
 	imports: [
-		TranslateModule,
+		SharedModule
 	],
 	declarations: [
 		NgbdModalContentComponent,
