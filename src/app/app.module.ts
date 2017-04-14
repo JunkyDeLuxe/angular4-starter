@@ -27,7 +27,7 @@ import { routing } from './app.routing';
 import { SharedModule } from './commons/shared.module';
 
 /** SCSS APP **/
-require('./app.component.scss');
+require('./app.module.scss');
 
 @NgModule({
     imports: [
