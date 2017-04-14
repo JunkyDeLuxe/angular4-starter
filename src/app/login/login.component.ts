@@ -5,6 +5,7 @@ import { HttpFallback } from '../components/http/http.fallback.service';
 import { JwtHelper } from 'angular2-jwt';
 import { StoreService } from '../components/storage/store.service';
 import { Router } from '@angular/router';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 // Tslint and Tsconfig don't have globals variables namespaces //
 import { isEmpty } from 'lodash';
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
 	constructor(private http: Http,
 	            private jwtHelper: JwtHelper,
 	            private storeService: StoreService,
+	            private loadingBar: SlimLoadingBarService,
 	            private httpFallback: HttpFallback,
 	            private router: Router) {
 		this.jwtHelper = new JwtHelper();
@@ -43,7 +45,8 @@ export class LoginComponent implements OnInit {
 			return false;
 		}
 
-		this.http.post('/api/login', this.user, {})
+		this.loadingBar.start();
+		this.http.post('/api/sessions', this.user, {})
 			.map(res => {
 				if (res.status === 404) {
 					throw new Error('bad login or password');
@@ -53,6 +56,7 @@ export class LoginComponent implements OnInit {
 				}
 			})
 			.subscribe((data) => {
+				this.loadingBar.complete();
 				let token = data.token;
 				this.storeService.set('id_token', token);
 
