@@ -24,6 +24,7 @@ import { FooterComponent } from './commons/footer/footer.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { routing } from './app.routing';
+import { SharedModule } from './commons/shared.module';
 
 /** SCSS APP **/
 require('./app.component.scss');
@@ -40,6 +41,7 @@ require('./app.component.scss');
             deps: [Http]
         }),
         routing,
+        SharedModule,
         AuthModule,
 	    HomeModule,
 	    LoginModule,

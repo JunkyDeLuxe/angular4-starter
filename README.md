@@ -47,7 +47,26 @@ Using postcss in order to postprocesses css rules.
 Modals component example from home page using ng-bootstrap modules. 
 ```
 
-# Production
+## Components
+1. [webpack-v2](https://webpack.js.org/configuration/)
+2. [bootstrap-v4](https://github.com/twbs/bootstrap/tree/v4-dev)
+3. [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap)
+4. [mixgen-sass-generator](https://github.com/neo9/mixgen)
+5. [ng2-slim-loading-bar](https://github.com/akserg/ng2-slim-loading-bar)
+6. [ng2-translate](https://github.com/ngx-translate/core)
+7. [font-awesome](https://github.com/FortAwesome/Font-Awesome)
+8. [JWT](https://github.com/auth0/angular2-jwt)
+
+For each component, you are able to check documentation and example in order to improve your starting project.
+
+## Details
+* For [JWT](https://github.com/auth0/angular2-jwt), you can easily remove it if you don't want to use it.
+It is used in the **login module**
+If you want keep it, you have to get an API with JWT.
+[Example with Nodejs](https://github.com/auth0/node-jsonwebtoken)
+* Translations: Works with json keys, values and json files, **check ./public/locales/en.json**
+
+## Production
 To build your application, run:
 
 npm run build
