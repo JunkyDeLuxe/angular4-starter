@@ -22,6 +22,7 @@ $fa-font-path: "~font-awesome/fonts";
 
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss";
 @import "~bootstrap/scss/bootstrap.scss";
+@import "~ng2-slim-loading-bar/bundles/style";
 
 /** customs modules **/
 @import "commons/footer/footer.component";
