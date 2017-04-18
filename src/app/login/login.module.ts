@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../commons/shared.module';
 
 import { LoginComponent } from './login.component';
+import { BadCredentialsModalComponent } from '../components/services/modals/bad-credentials/bad-credentials.modal.component';
 
 const routes: Routes = [
 	{ path: 'login', component: LoginComponent }
@@ -17,7 +18,13 @@ const routes: Routes = [
 		CommonModule,
 		FormsModule
 	],
-	declarations: [ LoginComponent ],
+	declarations: [
+		BadCredentialsModalComponent,
+		LoginComponent,
+	],
+	entryComponents: [
+		BadCredentialsModalComponent
+	],
 	providers: []
 })
 
