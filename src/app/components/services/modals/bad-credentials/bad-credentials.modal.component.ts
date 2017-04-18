@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-	selector: 'my-ngbd-modal-content',
-	templateUrl: './hellohome.modal.html'
+	selector: 'my-bad-credentials-modal',
+	templateUrl: './bad-credentials.modal.component.html'
 })
 
-export class NgbdModalContentComponent {
+export class BadCredentialsModalComponent {
 	@Input() name;
 
 	constructor(public activeModal: NgbActiveModal) {}

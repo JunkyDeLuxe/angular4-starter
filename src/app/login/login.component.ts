@@ -49,12 +49,7 @@ export class LoginComponent implements OnInit {
 		this.loadingBar.start();
 		this.http.post('/api/login', this.user, {})
 			.map(res => {
-				if (res.status === 400) {
-					throw new Error('bad login or password');
-					// display error front message //
-				} else {
-					return res.json();
-				}
+				return res.json();
 			})
 			.subscribe((data) => {
 				this.loadingBar.complete();
@@ -72,7 +67,11 @@ export class LoginComponent implements OnInit {
 						window.location.reload();
 					});
 				}, 1000);
-			}, (err) => this.httpFallback.fallback(err));
+			}, (err) => {
+				this.loadingBar.complete();
+				this.submitted = false;
+				this.httpFallback.fallback(err);
+			});
 	}
 
 	get diagnostic() {
