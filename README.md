@@ -65,6 +65,14 @@ It is used in the **login module**
 If you want keep it, you have to get an API with JWT.
 [Example with Nodejs](https://github.com/auth0/node-jsonwebtoken)
 * Translations: Works with json keys, values and json files, **check ./public/locales/en.json**
+* **About page** is protected by AuthGuard from JWT, you can't access it whithout a valid JWT token from the login page. 
+If you want to access it anyway, you just have to remove the canActivate argument from **about.module.ts**
+
+```
+const routes: Routes = [
+	{ path: 'about', component: AboutComponent, canActivate: [ AuthGuard ] }
+];
+```
 
 ## Production
 To build your application, run:
