@@ -1,5 +1,5 @@
 {
-  "name": "Angular Starter",
+  "name": "ngstarter",
   "version": "1.0.0",
   "description": "todolist with webpack and angular2",
   "main": "webpack.config.js",
