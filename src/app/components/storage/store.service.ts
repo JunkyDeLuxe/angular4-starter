@@ -8,8 +8,9 @@ export class StoreService {
         return JSON.parse(window.localStorage.getItem(key));
     }
 
-    set(key, data) {
-        window.localStorage.setItem(key, JSON.stringify(data));
+    /** by default, we stringify the content **/
+    set(key, data, stringify?: Boolean) {
+        window.localStorage.setItem(key, stringify ? JSON.stringify(data) : data);
     }
 
     del(key) {

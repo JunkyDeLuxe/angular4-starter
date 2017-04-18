@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 			.subscribe((data) => {
 				this.loadingBar.complete();
 				let token = data.token;
-				this.storeService.set('token', token);
+				this.storeService.set('token', token, false);
 
 				let profile = this.jwtHelper.decodeToken(token);
 				this.storeService.set('profile', profile);
