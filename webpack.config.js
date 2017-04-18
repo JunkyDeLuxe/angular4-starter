@@ -4,6 +4,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
+const extractCSS = new ExtractTextPlugin({ filename: 'css/[name].[hash].css' });
+
 /**
  * Env
  * Get npm lifecycle event to identify the environment
@@ -67,9 +69,15 @@ module.exports = function makeWebpackConfig() {
 			},
 			{
 				test: /app\.module\.scss$/,
-				loader: ExtractTextPlugin.extract({
+				loader: extractCSS.extract({
+					fallback: 'style-loader',
 					use: ['css-loader', 'postcss-loader', 'sass-loader']
 				})
+			},
+			{
+				test: /\.(scss|sass)$/,
+				exclude: /app\.module\.scss$/,
+				loader: 'raw-loader!postcss-loader!sass-loader'
 			},
 			{
 				test: /\.html$/,
@@ -116,7 +124,7 @@ module.exports = function makeWebpackConfig() {
 				template: 'src/index.html',
 				chunksSortMode: 'dependency'
 			}),
-			new ExtractTextPlugin({ filename: 'css/[name].[hash].css' })
+			extractCSS
 		);
 	}
 
