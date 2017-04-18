@@ -26,9 +26,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { routing } from './app.routing';
 import { SharedModule } from './commons/shared.module';
 
-/** SCSS APP **/
-require('./app.module.scss');
-
 @NgModule({
     imports: [
         BrowserModule,

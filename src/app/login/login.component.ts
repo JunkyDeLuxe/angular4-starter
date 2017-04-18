@@ -13,6 +13,7 @@ import { isEmpty } from 'lodash';
 @Component({
 	selector: 'my-login',
 	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.scss'],
 	providers: [ JwtHelper ]
 })
 

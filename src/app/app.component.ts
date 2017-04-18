@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 
+/** SCSS APP **/
+import './app.module.scss';
+
 @Component({
 	selector: 'my-app',
-	templateUrl: './app.component.html'
+	templateUrl: './app.component.html',
 })
 
 export class AppComponent {

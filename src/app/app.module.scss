@@ -13,6 +13,7 @@
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 
+@import "components/styles/sass/_vars.scss";
 @import "components/styles/sass/_colors.scss";
 @import "components/styles/sass/_navbar.scss";
 @import "components/styles/sass/_variables.scss";
@@ -23,10 +24,3 @@ $fa-font-path: "~font-awesome/fonts";
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss";
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~ng2-slim-loading-bar/bundles/style";
-
-/** customs modules **/
-@import "commons/footer/footer.component";
-@import "home/home.component";
-@import "login/login.component";
-@import "about/about.component";
-@import "unavailable/unavailable.component";
