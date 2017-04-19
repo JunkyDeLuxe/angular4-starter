@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
+<nav class="navbar fixed-top navbar-toggleable-md background-blue1-sm">
 	<div class="container">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -7,7 +7,7 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item" routerLinkActive="active">
-					<a class="nav-link" [routerLink]="['']">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item" routerLinkActive="active">
 					<a class="nav-link" *ngIf="!logged" [routerLink]="['login']">{{ 'header.links.login' | translate }}</a>

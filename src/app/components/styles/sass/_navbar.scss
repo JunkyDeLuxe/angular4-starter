@@ -1,4 +1,22 @@
+@import "./_vars.scss";
+
 .navbar {
   text-transform: uppercase;
   margin-bottom: 0;
+
+  .navbar-brand {
+    color: $white !important;
+  }
+
+  .nav-item {
+    color: $white !important;
+
+    a {
+      color: $white !important;
+    }
+  }
+
+  .nav-item.active {
+    background-color: $green1 !important;
+  }
 }
