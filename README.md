@@ -39,15 +39,13 @@ npm run e2e
 Just use /api in order to by pass with the webpack proxy.
 
 5/ CSS
-```
-SASS only.
-Using bootstrap alpha v4.
-Using ng-bootstrap official using bootstrap v4.
-Using postcss in order to postprocesses css rules.
-Modals component example from home page using ng-bootstrap modules. 
-```
+* SASS only.
+* Using bootstrap alpha v4.
+* Using Angular ng-bootstrap official.
+* Using postcss in order to postprocesses css rules with Webpack [postcss-loader](https://github.com/postcss/postcss-loader)
 
-## Components
+
+### Components
 1. [webpack-v2](https://webpack.js.org/configuration/)
 2. [bootstrap-v4](https://github.com/twbs/bootstrap/tree/v4-dev)
 3. [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap)
@@ -59,7 +57,7 @@ Modals component example from home page using ng-bootstrap modules.
 
 For each component, you are able to check documentation and example in order to improve your starting project.
 
-## Details
+### Details
 * For [JWT](https://github.com/auth0/angular2-jwt), you can easily remove it if you don't want to use it.
 It is used in the **login module**
 If you want keep it, you have to get an API with JWT.
@@ -74,8 +72,20 @@ const routes: Routes = [
 ];
 ```
 
-## Production
-To build your application, run:
+### API
+Webpack dev server enables a proxy url. Look at webpackconfig.js
+```
+proxy: {
+    "/api": {
+        target: "http://localhost:3000", // to be changed by the good api url
+        pathRewrite: {"^/api" : ""}
+    }
+}
+```
 
+### Production
+To build your application, run:
+```
 npm run build
-You can now go to /dist and deploy that to your server!
+```
+You can now go to */dist* and deploy that with Nginx for example to your server!
