@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log('login page loaded');
 		this.submitted = false;
 		this.validated = false;
 		this.user = new User();
