@@ -46,13 +46,13 @@ export class LoginComponent implements OnInit {
 			return false;
 		}
 
-		this.loadingBar.start();
+		// this.loadingBar.start();
 		this.http.post('/api/login', this.user, {})
 			.map(res => {
 				return res.json();
 			})
 			.subscribe((data) => {
-				this.loadingBar.complete();
+				// this.loadingBar.complete();
 				let token = data.token;
 				this.storeService.set('token', token, false);
 
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
 					});
 				}, 1000);
 			}, (err) => {
-				this.loadingBar.complete();
+				// this.loadingBar.complete();
 				this.submitted = false;
 				this.httpFallback.fallback(err);
 			});

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 import { BrowserModule }  from '@angular/platform-browser';
 import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-translate';
 import { FormsModule } from '@angular/forms';
@@ -23,8 +23,11 @@ import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { routing } from './app.routing';
 import { SharedModule } from './commons/shared.module';
+
+import { HttpInterceptors } from './components/http/http.interceptors';
 
 @NgModule({
     imports: [
@@ -54,7 +57,14 @@ import { SharedModule } from './commons/shared.module';
         AuthGuard,
         AuthService,
         StoreService,
-        HttpFallback
+        HttpFallback,
+	    {
+		    provide: Http,
+		    useFactory: (backend: XHRBackend, options: RequestOptions, loadingBar: SlimLoadingBarService) => {
+			    return new HttpInterceptors(backend, options, loadingBar);
+		    },
+		    deps: [XHRBackend, RequestOptions, SlimLoadingBarService]
+	    }
     ],
     bootstrap: [ AppComponent ]
 })
