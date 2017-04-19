@@ -10,7 +10,7 @@ export class StoreService {
 
     /** by default, we stringify the content **/
     set(key, data, stringify?: Boolean) {
-        window.localStorage.setItem(key, stringify ? JSON.stringify(data) : data);
+        window.localStorage.setItem(key, !stringify ? JSON.stringify(data) : data);
     }
 
     del(key) {

@@ -1,4 +1,9 @@
 {
+  "commons": {
+    "labels": {
+      "error": "Erreur"
+    }
+  },
   "home": {
     "title": "Angular App propulsée avec Webpack"
   },
@@ -17,6 +22,11 @@
     "languages": {
       "labels": {
         "change": "Change language"
+      }
+    },
+    "modals": {
+      "body": {
+        "bad-credentials": "Mauvais login ou password !"
       }
     }
   }

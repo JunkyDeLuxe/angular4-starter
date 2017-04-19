@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
+import { User } from './user.model';
 import { Http }  from '@angular/http';
 import { HttpFallback } from '../components/http/http.fallback.service';
 import { JwtHelper } from 'angular2-jwt';
@@ -49,9 +49,10 @@ export class LoginComponent implements OnInit {
 			})
 			.subscribe((data) => {
 				let token = data.token;
-				this.storeService.set('token', token, false);
+				this.storeService.set('token', token, true);
 
 				let profile = this.jwtHelper.decodeToken(token);
+				console.log(profile);
 				this.storeService.set('profile', profile);
 				this.validated = true;
 
