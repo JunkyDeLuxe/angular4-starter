@@ -114,6 +114,7 @@ module.exports = function makeWebpackConfig() {
 	if (isProd) {
 		config.plugins.push(
 			new webpack.NoEmitOnErrorsPlugin(),
+			new webpack.optimize.UglifyJsPlugin({ sourceMap: true, mangle: { keep_fnames: true } }),
 			new CopyWebpackPlugin([{
 				from: root('public'),
 				to: 'public'
