@@ -107,7 +107,7 @@ module.exports = function makeWebpackConfig() {
 			'process.env': { ENV: JSON.stringify(ENV) }
 		}),
 		new webpack.ContextReplacementPlugin(
-			/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+			/angular(\\|\/)core(\\|\/)@angular/,
 			root('./src')
 		),
 		new webpack.LoaderOptionsPlugin({
