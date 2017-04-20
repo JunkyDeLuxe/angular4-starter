@@ -27,7 +27,7 @@ export class HttpFallback {
 				const code = get(JSON.parse(err._body), 'code');
 
 				switch (code) {
-					case 'bad_credentials': {
+					case 'invalid_credentials': {
 						this.modalService.open(BadCredentialsModalComponent);
 						break;
 					}

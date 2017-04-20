@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 	submitted: boolean;
 	validated: boolean;
 	user: User;
+	error: Boolean = false;
 
 	constructor(private http: Http,
 	            private jwtHelper: JwtHelper,
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
 		this.submitted = false;
 		this.validated = false;
 		this.user = new User();
+	}
+
+	closeError() {
+		this.error = false;
 	}
 
 	onSubmit() {
@@ -64,7 +69,11 @@ export class LoginComponent implements OnInit {
 				}, 1000);
 			}, (err) => {
 				this.submitted = false;
-				this.httpFallback.fallback(err);
+				if (err && (err.status === 404 || err.status === 409)) {
+					this.error = true;
+				} else {
+					this.httpFallback.fallback(err);
+				}
 			});
 	}
 

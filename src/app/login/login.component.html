@@ -5,17 +5,23 @@
 				<div *ngIf="validated" class="submitted alert alert-success">
 					Your are logged. You will be redirected ...
 				</div>
+				<div *ngIf="error" class="alert alert-danger">
+					<a class="close" data-dismiss="alert" aria-label="close" title="close" (click)="closeError()">×</a>
+					Email not found.
+				</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-6 offset-sm-3">
-				<h1 class="text-15">
-					<i class="fa fa-user-circle" aria-hidden="true"></i>
-					User login page
+				<div class="text-center">
+					<i class="fa fa-user-circle" style="font-size: 70px" aria-hidden="true"></i>
+				</div>
+				<h1 class="text-15 margin-top-sm-sm text-center">
+					{{ 'login.title' | translate }}
 				</h1>
 
-				<form class="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
+				<form class="form margin-top-md-md" (ngSubmit)="onSubmit()" #userForm="ngForm">
 					<div class="form-group">
 						<label for="email">Email</label>
 						<input

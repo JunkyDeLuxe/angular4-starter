@@ -14,6 +14,7 @@
     }
   },
   "login": {
+    "title": "User login page",
     "labels": {
       "submit": "Login"
     }
