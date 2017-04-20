@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 const extractCSS = new ExtractTextPlugin({ filename: 'css/[name].[hash].css' });
@@ -13,7 +14,7 @@ const extractCSS = new ExtractTextPlugin({ filename: 'css/[name].[hash].css' });
 var ENV = process.env.npm_lifecycle_event;
 var isTestWatch = ENV === 'test-watch';
 var isTest = ENV === 'test' || isTestWatch;
-// var isProd = ENV === 'build'; not using it right now //
+var isProd = ENV === 'build';
 
 module.exports = function makeWebpackConfig() {
 
@@ -31,7 +32,7 @@ module.exports = function makeWebpackConfig() {
 
 	config.output = isTest ? {} : {
 		path: root('dist'),
-		publicPath: 'http://localhost:8080/',
+		publicPath: isProd ? '/' : 'http://localhost:8080/',
 		filename: 'js/[name].js',
 		chunkFilename: '[id].chunk.js'
 	};
@@ -71,13 +72,13 @@ module.exports = function makeWebpackConfig() {
 				test: /app\.module\.scss$/,
 				loader: extractCSS.extract({
 					fallback: 'style-loader',
-					use: ['css-loader', 'postcss-loader', 'sass-loader']
+					use: ['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
 				})
 			},
 			{
 				test: /\.(scss|sass)$/,
 				exclude: /app\.module\.scss$/,
-				loader: 'raw-loader!postcss-loader!sass-loader'
+				loader: 'raw-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap'
 			},
 			{
 				test: /\.html$/,
@@ -114,6 +115,16 @@ module.exports = function makeWebpackConfig() {
 			}
 		})
 	];
+
+	if (isProd) {
+		config.plugins.push(
+			new webpack.NoEmitOnErrorsPlugin(),
+			new CopyWebpackPlugin([{
+				from: root('public'),
+				to: 'public'
+			}])
+		);
+	}
 
 	if (!isTest) {
 		config.plugins.push(
