@@ -20,7 +20,15 @@ module.exports = function makeWebpackConfig() {
 
 	var config = {};
 
-	config.devtool = isTest ? 'inline-source-map' : 'eval-source-map';
+	if (isProd) {
+		config.devtool = 'source-map';
+	}
+	else if (isTest) {
+		config.devtool = 'inline-source-map';
+	}
+	else {
+		config.devtool = 'eval-source-map';
+	}
 
 	if (!isTest) {
 		config.entry = isTest ? {} : {
@@ -33,8 +41,8 @@ module.exports = function makeWebpackConfig() {
 	config.output = isTest ? {} : {
 		path: root('dist'),
 		publicPath: isProd ? '/' : 'http://localhost:8080/',
-		filename: 'js/[name].js',
-		chunkFilename: '[id].chunk.js'
+		filename: isProd ? 'js/[name].[hash].js' : 'js/[name].js',
+		chunkFilename: isProd ? '[id].[hash].chunk.js' : '[id].chunk.js'
 	};
 
 	config.resolve = {
@@ -44,7 +52,6 @@ module.exports = function makeWebpackConfig() {
 	var atlOptions = '';
 
 	if (isTest && !isTestWatch) {
-		// awesome-typescript-loader needs to output inlineSourceMap for code coverage to work with source maps.
 		atlOptions = 'inlineSourceMap=true&sourceMap=false';
 	}
 
@@ -114,7 +121,7 @@ module.exports = function makeWebpackConfig() {
 	if (isProd) {
 		config.plugins.push(
 			new webpack.NoEmitOnErrorsPlugin(),
-			new webpack.optimize.UglifyJsPlugin({ sourceMap: true, mangle: { keep_fnames: true } }),
+			new webpack.optimize.UglifyJsPlugin({sourceMap: true, mangle: { keep_fnames: true }}),
 			new CopyWebpackPlugin([{
 				from: root('public'),
 				to: 'public'

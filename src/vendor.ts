@@ -7,6 +7,5 @@ import '@angular/http';
 import '@angular/router';
 import '@angular/forms';
 
-// Libs
 import 'rxjs';
 import 'lodash';
