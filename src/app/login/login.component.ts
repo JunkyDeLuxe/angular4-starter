@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
 				this.storeService.set('token', token, true);
 
 				let profile = this.jwtHelper.decodeToken(token);
-				console.log(profile);
 				this.storeService.set('profile', profile);
 				this.validated = true;
 

@@ -16,16 +16,21 @@ export class HttpFallback {
 		let status = err.status;
 		let unavailableService = false;
 
-		if (status >= 500) {
+		/** status === 0 for webpack dev server **/
+		if (status >= 500 || status === 0) {
 			unavailableService = true;
 		} else {
 			/** nothing here, manage custom errs from api **/
-			const code = get(JSON.parse(err._body), 'code');
+			if (!err || !err._body) {
+				unavailableService = true;
+			} else {
+				const code = get(JSON.parse(err._body), 'code');
 
-			switch (code) {
-				case 'bad_credentials': {
-					this.modalService.open(BadCredentialsModalComponent);
-					break;
+				switch (code) {
+					case 'bad_credentials': {
+						this.modalService.open(BadCredentialsModalComponent);
+						break;
+					}
 				}
 			}
 		}
