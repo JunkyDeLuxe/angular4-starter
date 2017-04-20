@@ -89,3 +89,7 @@ To build your application, run:
 npm run build
 ```
 You can now go to */dist* and deploy that with Nginx for example to your server!
+
+### Preview
+For see what it looks like:
+[DEMO](http://angular-skeleton.surge.sh)
