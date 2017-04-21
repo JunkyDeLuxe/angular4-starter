@@ -19,6 +19,13 @@
 					<a class="nav-link" [routerLink]="['about']" [class.disabled]="!logged">{{ 'header.links.about' | translate }}</a>
 				</li>
 			</ul>
+			<div>
+				<ul class="navbar-nav margin-right-xs-xs">
+					<li class="nav-item" routerLinkActive="active">
+						<a class="nav-link" [routerLink]="['my-account']" *ngIf="logged">{{ 'header.links.my-account' | translate }}</a>
+					</li>
+				</ul>
+			</div>
 			<div ngbDropdown class="d-inline-block">
 				<button class="btn btn-outline-primary cursor-pointer text-uppercase" id="dropdownMenu1" ngbDropdownToggle>
 					{{ translateService.currentLang }}
@@ -28,7 +35,8 @@
 							class="dropdown-item cursor-pointer text-uppercase"
 							*ngFor="let language of languages"
 							(click)="translateService.use(language);">
-						{{ language }}
+						<img src="/public/img/flags/{{ language.toLowerCase() }}.png" style="width: 30px; height: 20px;" />
+						<span class="padding-left-xs-xs padding-top-xs-xs">{{ language }}</span>
 					</button>
 				</div>
 			</div>
