@@ -4,7 +4,7 @@ import { AuthService } from '../../components/auth/auth.service';
 import { AuthHttp } from 'angular2-jwt';
 import { Router } from '@angular/router';
 import { StoreService } from '../../components/storage/store.service';
-import {HttpFallback} from "../../components/http/http.fallback.service";
+import { HttpFallback } from '../../components/http/http.fallback.service';
 
 @Component({
 	selector: 'my-header',
