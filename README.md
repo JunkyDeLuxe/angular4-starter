@@ -44,7 +44,6 @@ Just use /api in order to by pass with the webpack proxy.
 * Using Angular ng-bootstrap official.
 * Using postcss in order to postprocesses css rules with Webpack [postcss-loader](https://github.com/postcss/postcss-loader)
 
-
 ### Components
 1. [webpack-v2](https://webpack.js.org/configuration/)
 2. [bootstrap-v4](https://github.com/twbs/bootstrap/tree/v4-dev)
@@ -58,8 +57,6 @@ Just use /api in order to by pass with the webpack proxy.
 For each component, you are able to check documentation and example in order to improve your starting project.
 
 ### Details
-* For [JWT](https://github.com/auth0/angular2-jwt), you can easily remove it if you don't want to use it.
-It is used in the **login module**
 If you want keep it, you have to get an API with JWT.
 [Example with Nodejs](https://github.com/auth0/node-jsonwebtoken)
 * Translations: Works with json keys, values and json files, **check ./public/locales/en.json**
@@ -71,6 +68,20 @@ const routes: Routes = [
 	{ path: 'about', component: AboutComponent, canActivate: [ AuthGuard ] }
 ];
 ```
+
+### JWT
+* For [JWT](https://github.com/auth0/angular2-jwt), you can easily remove it if you don't want to use it.
+It is used in the **login module**
+* U can find a very good implementation for a custom ECRM with NodeJs for your JWT *login and logout components*. Go to [ecrm-skeleton](https://github.com/underscorenico/skeleton-ecrm-nodejs).
+- Install MongoDb, launch it, create a user profile with postman for example. After that u can:
+
+```
+git clone the repo.
+# from a term tab, do:
+npm install
+npm start
+```
+The ECRM will be available and you will be able to login and logout to the web app.
 
 ### API
 Webpack dev server enables a proxy url. Look at webpackconfig.js
