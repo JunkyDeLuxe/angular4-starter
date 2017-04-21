@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { AuthHttp } from 'angular2-jwt';
 import { Response } from '@angular/http';
 import { StoreService } from '../components/storage/store.service';
+import { HttpFallback } from '../components/http/http.fallback.service';
 
 /** MOVE DEFINITION INTERFACE ? **/
 export interface Profile {
@@ -17,13 +18,19 @@ export interface Profile {
 /** MOVE PROFILE RESOLVER ? **/
 @Injectable()
 export class ProfileResolver implements Resolve<Response> {
-	constructor(private authHttp: AuthHttp, private store: StoreService) {
+	constructor(private authHttp: AuthHttp,
+	            private store: StoreService,
+	            private httpFallback: HttpFallback) {
 	}
 
 	resolve(): Observable<Response> {
 		let profile = this.store.get('profile');
 
-		return this.authHttp.get('/api/profiles/' + profile.id);
+		return this.authHttp.get('/api/profiles/' + profile.id)
+			.catch((err) => {
+				this.httpFallback.fallback(err);
+				return Observable.throw(err);
+			});
 	}
 }
 
