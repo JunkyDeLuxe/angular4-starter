@@ -16,6 +16,7 @@ import { StoreService } from './components/storage/store.service';
 /*** MODULES ***/
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
+import { MyAccountModule } from './my-account/my-account.module';
 import { AboutModule } from './about/about.module';
 import { UnavailableModule } from './unavailable/unavailable.module';
 
@@ -45,6 +46,7 @@ import { HttpInterceptors } from './components/http/http.interceptors';
         AuthModule,
 	    HomeModule,
 	    LoginModule,
+	    MyAccountModule,
 	    AboutModule,
 	    UnavailableModule
     ],

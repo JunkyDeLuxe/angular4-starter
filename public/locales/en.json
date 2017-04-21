@@ -10,7 +10,8 @@
   "header": {
     "links": {
       "about": "About",
-      "login": "Login"
+      "login": "Login",
+      "my-account": "My account"
     }
   },
   "login": {
