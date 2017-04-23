@@ -58,8 +58,15 @@ Just use /api in order to by pass with the webpack proxy.
 6. [ng2-translate](https://github.com/ngx-translate/core)
 7. [font-awesome](https://github.com/FortAwesome/Font-Awesome)
 8. [JWT](https://github.com/auth0/angular2-jwt)
+9. [Lodash](https://lodash.com/docs/4.17.4) 
 
-For each component, you are able to check documentation and example in order to improve your starting project.
+- When you want use lodash in components, you have to import each function you wanna use:
+```
+import { isEmpty } from 'lodash';
+# After that u can just call isEmpty fnc
+if (isEmpty(your_variable)) { ... }
+```
+- For each component, you are able to check documentation and example in order to improve your starting project.
 
 ### Details
 If you want keep it, you have to get an API with JWT.
