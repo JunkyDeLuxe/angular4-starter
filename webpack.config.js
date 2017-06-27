@@ -59,16 +59,28 @@ module.exports = function makeWebpackConfig() {
 		rules: [
 			{
 				test: /\.ts$/,
-				loaders: ['awesome-typescript-loader?' + atlOptions, 'angular2-template-loader'],
+				use: [
+					{
+						loader: 'awesome-typescript-loader?' + atlOptions,
+						options: { useCache: !isProd }
+					},
+					{
+						loader: 'angular2-template-loader'
+					}
+				],
 				exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg|otf|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
+				use: [
+					{ loader: 'file-loader?name=fonts/[name].[hash].[ext]?' }
+				]
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg)$/,
-				loader: 'file-loader?name=img/[name].[hash].[ext]?'
+				use: [
+					{ loader: 'file-loader?name=img/[name].[hash].[ext]?' }
+				]
 			},
 			{
 				test: /app\.module\.scss$/,
@@ -79,8 +91,10 @@ module.exports = function makeWebpackConfig() {
 			},
 			{
 				test: /\.(scss|sass)$/,
-				exclude: /app\.module\.scss$/,
-				loader: 'raw-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap'
+				use: [
+					{ loader: 'raw-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap' }
+				],
+				exclude: /app\.module\.scss$/
 			},
 			{
 				test: /\.html$/,
@@ -88,7 +102,8 @@ module.exports = function makeWebpackConfig() {
 				exclude: [root('src/index.html')]
 			},
 			{
-				test: /\.json$/, loader: 'json-loader'
+				test: /\.json$/,
+				use: 'json-loader'
 			}
 		]
 	};
