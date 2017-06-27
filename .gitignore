@@ -1,4 +1,5 @@
 dist
 node_modules
+.awcache
 .idea
 npm-debug.log
