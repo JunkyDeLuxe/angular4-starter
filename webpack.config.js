@@ -14,7 +14,7 @@ const extractCSS = new ExtractTextPlugin({ filename: 'css/[name].[hash].css' });
 var ENV = process.env.npm_lifecycle_event;
 var isTestWatch = ENV === 'test-watch';
 var isTest = ENV === 'test' || isTestWatch;
-var isProd = ENV === 'build';
+var isProd = ENV === 'production';
 
 module.exports = function makeWebpackConfig() {
 
@@ -91,10 +91,8 @@ module.exports = function makeWebpackConfig() {
 			},
 			{
 				test: /\.(scss|sass)$/,
-				use: [
-					{ loader: 'raw-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap' }
-				],
-				exclude: /app\.module\.scss$/
+				exclude: /app\.module\.scss$/,
+				loader: 'raw-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap'
 			},
 			{
 				test: /\.html$/,
