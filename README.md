@@ -5,7 +5,7 @@
 | --------- | --------- | --------- | --------- | --------- | --------- |
 | IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| - | -
 
-# Angular v4 with Webpack 2+
+# Angular v4 with Webpack
 
 Complete starter for Angular 2 using Webpack works with JWT
 Including a login, about, 404, commons header and footer components in order to create a generic skeleton
@@ -50,7 +50,7 @@ Just use /api in order to by pass with the webpack proxy.
 * Using postcss in order to postprocesses css rules with Webpack [postcss-loader](https://github.com/postcss/postcss-loader)
 
 ### Components
-1. [webpack-v2](https://webpack.js.org/configuration/)
+1. [webpack](https://webpack.js.org/configuration/)
 2. [bootstrap-v4](https://github.com/twbs/bootstrap/tree/v4-dev)
 3. [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap)
 4. [mixgen-sass-generator](https://github.com/neo9/mixgen)
