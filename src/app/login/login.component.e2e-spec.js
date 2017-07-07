@@ -8,7 +8,7 @@ describe('Login', function () {
 		expect(login.isPresent()).toEqual(true);
 
 		login.element(by.name("email")).sendKeys("test@gmail.com");
-		login.element(by.name("password")).sendKeys("azerty1988");
+		login.element(by.name("password")).sendKeys("mptest");
 
 		login.element(by.className("btn")).click();
 
