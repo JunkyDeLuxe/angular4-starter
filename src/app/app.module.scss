@@ -13,6 +13,10 @@
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 
+@import "~bootswatch/materia/_variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/materia/_bootswatch";
+
 @import "components/styles/sass/_vars.scss";
 @import "components/styles/sass/_colors.scss";
 @import "components/styles/sass/_navbar.scss";
@@ -20,6 +24,7 @@ $fa-font-path: "~font-awesome/fonts";
 @import "components/styles/sass/_fonts.scss";
 @import "components/styles/sass/_paddings.scss";
 @import "components/styles/sass/_margins.scss";
+@import "components/styles/sass/_texts.scss";
 
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss";
 @import "~bootstrap/scss/bootstrap.scss";
