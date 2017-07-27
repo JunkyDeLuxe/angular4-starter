@@ -32,6 +32,7 @@
     "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.26",
     "angular2-jwt": "^0.2.0",
     "bootstrap": "^4.0.0-alpha.6",
+    "bootswatch": "github:thomaspark/bootswatch#v4",
     "core-js": "^2.4.1",
     "font-awesome": "4.7.0",
     "lodash": "4.17.4",
