@@ -1,7 +1,7 @@
 @import "../components/styles/sass/_vars.scss";
 
 .about {
-  color: $white;
+  color: $black1;
   padding-bottom: 50px;
 
   h2 {
@@ -9,7 +9,7 @@
   }
 
   hr.star-light {
-    border-color: $white;
+    border-color: $black1;
   }
 
   hr.star-light, hr.star-primary {
@@ -22,8 +22,8 @@
   }
 
   hr.star-light:after {
-    background-color: $green1;
-    color: $white;
+    background-color: $white;
+    color: $black1;
   }
 
   hr.star-light:after, hr.star-primary:after {

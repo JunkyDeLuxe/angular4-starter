@@ -4,7 +4,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<a class="navbar-brand">
-			<i class="fa fa-firefox" aria-hidden="true"></i>
+			<a [routerLink]="['home']"><i class="fa fa-firefox" aria-hidden="true"></i></a>
 		</a>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav mr-auto">
@@ -16,7 +16,7 @@
 					<a class="nav-link cursor-pointer" *ngIf="logged" (click)="logout()">Log Out</a>
 				</li>
 				<li class="nav-item" routerLinkActive="active">
-					<a class="nav-link" [routerLink]="['about']" [class.disabled]="!logged">{{ 'header.links.about' | translate }}</a>
+					<a class="nav-link" [routerLink]="['about']">{{ 'header.links.about' | translate }}</a>
 				</li>
 			</ul>
 			<div>
