@@ -20,6 +20,9 @@
       "submit": "Login"
     }
   },
+  "about": {
+    "title": "About"
+  },
   "components": {
     "languages": {
       "labels": {
