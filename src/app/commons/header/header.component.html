@@ -1,13 +1,13 @@
-<nav class="navbar fixed-top navbar-toggleable-md background-blue1-sm">
+<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
 	<div class="container">
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<a class="navbar-brand">
 			<a [routerLink]="['home']"><i class="fa fa-firefox" aria-hidden="true"></i></a>
 		</a>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav mr-auto">
+			<ul class="navbar-nav mr-auto text-uppercase">
 				<li class="nav-item" routerLinkActive="active">
 					<a class="nav-link" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
 				</li>
