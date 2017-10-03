@@ -1,7 +1,7 @@
 <div class="login">
 	<div class="container padding-bottom-lg-lg">
 		<div class="row">
-			<div class="col-sm-6 offset-sm-3 margin-bottom-none">
+			<div class="col-6 offset-sm-3 margin-bottom-none">
 				<div *ngIf="validated" class="submitted alert alert-success">
 					Your are logged. You will be redirected ...
 				</div>
@@ -12,8 +12,8 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-sm-6 offset-sm-3">
+		<div class="row justify-content-md-center">
+			<div class="col-6">
 				<form class="form margin-top-md-md" (ngSubmit)="onSubmit()" #userForm="ngForm">
 					<div class="form-group">
 						<label for="email">Email</label>

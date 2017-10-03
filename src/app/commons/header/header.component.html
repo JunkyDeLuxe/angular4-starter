@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
+<nav id="aniel-header" class="navbar navbar-expand-sm fixed-top navbar-toggleable-md background-blue1-xs">
 	<div class="container">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -30,11 +30,11 @@
 				<button class="btn btn-outline-primary cursor-pointer text-uppercase" id="dropdownMenu1" ngbDropdownToggle>
 					{{ translateService.currentLang }}
 				</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu1">
 					<button
-							class="dropdown-item cursor-pointer text-uppercase"
-							*ngFor="let language of languages"
-							(click)="translateService.use(language);">
+						class="dropdown-item cursor-pointer text-uppercase"
+						*ngFor="let language of languages"
+						(click)="translateService.use(language);">
 						<img src="/public/img/flags/{{ language.toLowerCase() }}.png" style="width: 30px; height: 20px;" />
 						<span class="padding-left-xs-xs padding-top-xs-xs">{{ language }}</span>
 					</button>

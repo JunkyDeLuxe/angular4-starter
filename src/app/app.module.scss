@@ -13,9 +13,9 @@
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 
-@import "~bootswatch/materia/_variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~bootswatch/materia/_bootswatch";
+// Need update of bootswatch material githhub repo //
+// @import "~bootswatch/materia/_variables";
+// @import "~bootswatch/materia/_bootswatch";
 
 @import "components/styles/sass/_vars.scss";
 @import "components/styles/sass/_colors.scss";
@@ -26,7 +26,6 @@ $fa-font-path: "~font-awesome/fonts";
 @import "components/styles/sass/_margins.scss";
 @import "components/styles/sass/_texts.scss";
 
-@import "~bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss";
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~ng2-slim-loading-bar/bundles/style";
 
