@@ -45,7 +45,7 @@ Just use /api in order to by pass with the webpack proxy.
 
 5/ CSS
 * SASS only.
-* Using bootstrap alpha v4.
+* Using bootstrap beta-4. (last one)
 * Using Angular ng-bootstrap official.
 * Using postcss in order to postprocesses css rules with Webpack [postcss-loader](https://github.com/postcss/postcss-loader)
 
