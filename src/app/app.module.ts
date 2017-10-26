@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { HttpModule, Http, BrowserXhr } from '@angular/http';
+import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
 import { BrowserModule }  from '@angular/platform-browser';
 import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-translate';
 import { FormsModule } from '@angular/forms';
@@ -24,16 +25,14 @@ import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { routing } from './app.routing';
 import { SharedModule } from './commons/shared.module';
-
-import { HttpInterceptors } from './components/http/http.interceptors';
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
+        NgProgressModule,
         FormsModule,
 	    NgbModule.forRoot(),
         TranslateModule.forRoot({
@@ -60,13 +59,7 @@ import { HttpInterceptors } from './components/http/http.interceptors';
         AuthService,
         StoreService,
         HttpFallback,
-	    {
-		    provide: Http,
-		    useFactory: (backend: XHRBackend, options: RequestOptions, loadingBar: SlimLoadingBarService) => {
-			    return new HttpInterceptors(backend, options, loadingBar);
-		    },
-		    deps: [XHRBackend, RequestOptions, SlimLoadingBarService]
-	    }
+        { provide: BrowserXhr, useClass: NgProgressBrowserXhr }
     ],
     bootstrap: [ AppComponent ]
 })
