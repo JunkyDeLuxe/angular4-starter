@@ -54,7 +54,7 @@ Just use /api in order to by pass with the webpack proxy.
 2. [bootstrap-v4](https://github.com/twbs/bootstrap/tree/v4-dev)
 3. [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap)
 4. [mixgen-sass-generator](https://github.com/neo9/mixgen)
-5. [ng2-slim-loading-bar](https://github.com/akserg/ng2-slim-loading-bar)
+5. [ngx-progressbar](https://github.com/MurhafSousli/ngx-progressbar)
 6. [ng2-translate](https://github.com/ngx-translate/core)
 7. [font-awesome](https://github.com/FortAwesome/Font-Awesome)
 8. [JWT](https://github.com/auth0/angular2-jwt)
@@ -72,12 +72,11 @@ if (isEmpty(your_variable)) { ... }
 If you want keep it, you have to get an API with JWT.
 [Example with Nodejs](https://github.com/auth0/node-jsonwebtoken)
 * Translations: Works with json keys, values and json files, **check ./public/locales/en.json**
-* **About page** is protected by AuthGuard from JWT, you can't access it whithout a valid JWT token from the login page. 
-If you want to access it anyway, you just have to remove the canActivate argument from **about.module.ts**
+* **About page** you can protect access of this page with JWT AuthGuard. 
 
 ```
 const routes: Routes = [
-	{ path: 'about', component: AboutComponent, canActivate: [ AuthGuard ] }
+	{ path: 'about', component: AboutComponent, canActivate: [ AuthGuard ] } # add AuthGuard to your route.
 ];
 ```
 
