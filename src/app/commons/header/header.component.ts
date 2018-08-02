@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from 'ng2-translate';
 import { AuthService } from '../../components/auth/auth.service';
 import { Router } from '@angular/router';
 import { StoreService } from '../../components/storage/store.service';
@@ -12,16 +11,11 @@ import { StoreService } from '../../components/storage/store.service';
 
 export class HeaderComponent implements OnInit {
 	logged: Boolean;
-	translateService: TranslateService;
-	private languages: Array<string>;
 
-	constructor(translate: TranslateService,
-	            private store: StoreService,
-	            private router: Router,
-	            private authService: AuthService) {
-
-		this.languages = translate.getLangs();
-		this.translateService = translate;
+	constructor(
+		private store: StoreService,
+		private router: Router,
+		private authService: AuthService) {
 	}
 
 	ngOnInit() {

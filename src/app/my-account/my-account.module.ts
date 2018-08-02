@@ -4,7 +4,6 @@ import { SharedModule } from '../commons/shared.module';
 
 import { MyAccountComponent } from './my-account.component';
 import { Observable } from 'rxjs';
-import { AuthHttp } from 'angular2-jwt';
 import { Response } from '@angular/http';
 import { StoreService } from '../components/storage/store.service';
 import { HttpFallback } from '../components/http/http.fallback.service';
@@ -16,29 +15,29 @@ export interface Profile {
 }
 
 /** MOVE PROFILE RESOLVER ? **/
-@Injectable()
-export class ProfileResolver implements Resolve<Response> {
-	constructor(private authHttp: AuthHttp,
-	            private store: StoreService,
-	            private httpFallback: HttpFallback) {
-	}
+// @Injectable()
+// export class ProfileResolver implements Resolve<Response> {
+// 	constructor(private authHttp: AuthHttp,
+// 	            private store: StoreService,
+// 	            private httpFallback: HttpFallback) {
+// 	}
 
-	resolve(): Observable<Response> {
-		let profile = this.store.get('profile');
+// 	resolve(): Observable<Response> {
+// 		let profile = this.store.get('profile');
 
-		return this.authHttp.get('/api/profiles/' + profile.id)
-			.catch((err) => {
-				this.httpFallback.fallback(err);
-				return Observable.throw(err);
-			});
-	}
-}
+// 		return this.authHttp.get('/api/profiles/' + profile.id)
+// 			.catch((err) => {
+// 				this.httpFallback.fallback(err);
+// 				return Observable.throw(err);
+// 			});
+// 	}
+// }
 
 const routes: Routes = [
 	{
 		path: 'my-account',
 		component: MyAccountComponent,
-		resolve: { profile: ProfileResolver }
+		//resolve: { profile: ProfileResolver }
 	}
 ];
 
@@ -51,7 +50,7 @@ const routes: Routes = [
 		MyAccountComponent
 	],
 	providers: [
-		ProfileResolver
+		//ProfileResolver
 	]
 })
 

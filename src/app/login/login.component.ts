@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user.model';
-import { Http }  from '@angular/http';
-import { HttpFallback } from '../components/http/http.fallback.service';
-import { JwtHelper } from 'angular2-jwt';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { StoreService } from '../components/storage/store.service';
 import { Router } from '@angular/router';
 
@@ -13,7 +12,7 @@ import { isEmpty } from 'lodash';
 	selector: 'my-login',
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.scss'],
-	providers: [ JwtHelper ]
+	providers: [ JwtHelperService ]
 })
 
 export class LoginComponent implements OnInit {
@@ -23,13 +22,10 @@ export class LoginComponent implements OnInit {
 	user: User;
 	error: Boolean = false;
 
-	constructor(private http: Http,
-	            private jwtHelper: JwtHelper,
+	constructor(private http: HttpClient,
+	            private jwtHelperService: JwtHelperService,
 	            private storeService: StoreService,
-	            private httpFallback: HttpFallback,
-	            private router: Router) {
-		this.jwtHelper = new JwtHelper();
-	}
+	            private router: Router) {}
 
 	ngOnInit() {
 		this.submitted = false;
@@ -49,14 +45,11 @@ export class LoginComponent implements OnInit {
 		}
 
 		this.http.post('/api/login', this.user, {})
-			.map(res => {
-				return res.json();
-			})
-			.subscribe((data) => {
+			.subscribe((data: any) => {
 				let token = data.token;
 				this.storeService.set('token', token, true);
 
-				let profile = this.jwtHelper.decodeToken(token);
+				let profile = this.jwtHelperService.decodeToken(token);
 				this.storeService.set('profile', profile);
 				this.validated = true;
 
@@ -72,7 +65,7 @@ export class LoginComponent implements OnInit {
 				if (err && (err.status === 404 || err.status === 409)) {
 					this.error = true;
 				} else {
-					this.httpFallback.fallback(err);
+					// this.httpFallback.fallback(err);
 				}
 			});
 	}
